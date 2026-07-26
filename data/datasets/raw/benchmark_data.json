@@ -1,0 +1,2673 @@
+[
+  {
+    "document_id": "nda_01",
+    "document_text": "This Non-Disclosure Agreement (the 'Agreement') is entered into by and between CorpA and CorpB. The term of this Agreement shall commence on the Effective Date and shall continue for a period of five (5) years, after which the receiving party's obligation to protect Confidential Information shall expire. The governing law of this Agreement shall be the state of Delaware.",
+    "question": "What is the duration of the non-disclosure agreement?",
+    "answer": "Five (5) years from the Effective Date.",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Standard NDA Template v1",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "This Non-Disclosure Agreement (the 'Agreement') is entered into by and between CorpA and CorpB.",
+        "start_position": 0,
+        "end_position": 93,
+        "token_count": 14,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "The term of this Agreement shall commence on the Effective Date and shall continue for a period of five (5) years, after which the receiving party's obligation to protect Confidential Information shall expire.",
+        "start_position": 94,
+        "end_position": 305,
+        "token_count": 33,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "The governing law of this Agreement shall be the state of Delaware.",
+        "start_position": 306,
+        "end_position": 373,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "nda_02",
+    "document_text": "This Non-Disclosure Agreement (the 'Agreement') is entered into by and between CorpA and CorpB. The term of this Agreement shall commence on the Effective Date and shall continue for a period of five (5) years, after which the receiving party's obligation to protect Confidential Information shall expire. The governing law of this Agreement shall be the state of Delaware.",
+    "question": "Which state's laws govern this NDA?",
+    "answer": "Delaware",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Standard NDA Template v1",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "This Non-Disclosure Agreement (the 'Agreement') is entered into by and between CorpA and CorpB.",
+        "start_position": 0,
+        "end_position": 93,
+        "token_count": 14,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "The term of this Agreement shall commence on the Effective Date and shall continue for a period of five (5) years, after which the receiving party's obligation to protect Confidential Information shall expire.",
+        "start_position": 94,
+        "end_position": 305,
+        "token_count": 33,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "The governing law of this Agreement shall be the state of Delaware.",
+        "start_position": 306,
+        "end_position": 373,
+        "token_count": 12,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "nda_03",
+    "document_text": "Confidential Information includes all proprietary technical, financial, or business details disclosed by the Discloser. However, Confidential Information does not include details that: (a) are or become public knowledge through no breach of this agreement; (b) were already in the Recipient's possession prior to disclosure; or (c) are independently developed by the Recipient.",
+    "question": "Does information that the recipient independently developed count as Confidential Information?",
+    "answer": "No, information independently developed by the recipient is explicitly excluded from the definition of Confidential Information.",
+    "difficulty": "medium",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "NDA Exclusions Clause",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Confidential Information includes all proprietary technical, financial, or business details disclosed by the Discloser.",
+        "start_position": 0,
+        "end_position": 119,
+        "token_count": 14,
+        "is_relevant": true,
+        "relevance_score": 1
+      },
+      {
+        "id": 1,
+        "text": "However, Confidential Information does not include details that: (a) are or become public knowledge through no breach of this agreement; (b) were already in the Recipient's possession prior to disclosure; or (c) are independently developed by the Recipient.",
+        "start_position": 120,
+        "end_position": 378,
+        "token_count": 38,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "tos_01",
+    "document_text": "Welcome to AppX. By creating an account, you consent to our terms. Users of AppX must be at least 13 years of age. If we learn that a user under 13 has registered, we will terminate the account immediately. We collect user location data for targeting advertisements. We explicitly pledge never to sell personal user data to credit bureaus or external data brokers.",
+    "question": "Are children under the age of 13 permitted to have accounts on AppX?",
+    "answer": "No, users must be at least 13 years old. If a user under 13 registers, their account will be terminated immediately.",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "AppX SaaS Terms",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Welcome to AppX. By creating an account, you consent to our terms.",
+        "start_position": 0,
+        "end_position": 66,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Users of AppX must be at least 13 years of age. If we learn that a user under 13 has registered, we will terminate the account immediately.",
+        "start_position": 67,
+        "end_position": 204,
+        "token_count": 27,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "We collect user location data for targeting advertisements.",
+        "start_position": 205,
+        "end_position": 264,
+        "token_count": 8,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "We explicitly pledge never to sell personal user data to credit bureaus or external data brokers.",
+        "start_position": 265,
+        "end_position": 363,
+        "token_count": 16,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "tos_02",
+    "document_text": "Welcome to AppX. By creating an account, you consent to our terms. Users of AppX must be at least 13 years of age. If we learn that a user under 13 has registered, we will terminate the account immediately. We collect user location data for targeting advertisements. We explicitly pledge never to sell personal user data to credit bureaus or external data brokers.",
+    "question": "Can AppX sell my user data to a credit bureau?",
+    "answer": "No, AppX explicitly pledges never to sell personal user data to credit bureaus.",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "AppX SaaS Terms",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Welcome to AppX. By creating an account, you consent to our terms.",
+        "start_position": 0,
+        "end_position": 66,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Users of AppX must be at least 13 years of age. If we learn that a user under 13 has registered, we will terminate the account immediately.",
+        "start_position": 67,
+        "end_position": 204,
+        "token_count": 27,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "We collect user location data for targeting advertisements.",
+        "start_position": 205,
+        "end_position": 264,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 1
+      },
+      {
+        "id": 3,
+        "text": "We explicitly pledge never to sell personal user data to credit bureaus or external data brokers.",
+        "start_position": 265,
+        "end_position": 363,
+        "token_count": 16,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "tos_03",
+    "document_text": "Any dispute arising from these Terms will be settled by binding arbitration in San Francisco, CA. Class action lawsuits are strictly prohibited; users may only bring claims in an individual capacity. However, claims regarding intellectual property theft or software infringement may be resolved in small claims court.",
+    "question": "Can a user bring a class action lawsuit for privacy disputes under these terms?",
+    "answer": "No, class action lawsuits are strictly prohibited. Disputes must be resolved by individual arbitration.",
+    "difficulty": "medium",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "AppX Arbitration Policy",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Any dispute arising from these Terms will be settled by binding arbitration in San Francisco, CA.",
+        "start_position": 0,
+        "end_position": 98,
+        "token_count": 16,
+        "is_relevant": true,
+        "relevance_score": 2
+      },
+      {
+        "id": 1,
+        "text": "Class action lawsuits are strictly prohibited; users may only bring claims in an individual capacity.",
+        "start_position": 99,
+        "end_position": 201,
+        "token_count": 15,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "However, claims regarding intellectual property theft or software infringement may be resolved in small claims court.",
+        "start_position": 202,
+        "end_position": 319,
+        "token_count": 16,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "tos_04",
+    "document_text": "Any dispute arising from these Terms will be settled by binding arbitration in San Francisco, CA. Class action lawsuits are strictly prohibited; users may only bring claims in an individual capacity. However, claims regarding intellectual property theft or software infringement may be resolved in small claims court.",
+    "question": "Under what circumstances can a user avoid the binding arbitration clause and go to court?",
+    "answer": "A user can resolve disputes in small claims court only if the claims regard intellectual property theft or software infringement.",
+    "difficulty": "medium",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "AppX Arbitration Policy",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Any dispute arising from these Terms will be settled by binding arbitration in San Francisco, CA.",
+        "start_position": 0,
+        "end_position": 98,
+        "token_count": 16,
+        "is_relevant": true,
+        "relevance_score": 1
+      },
+      {
+        "id": 1,
+        "text": "Class action lawsuits are strictly prohibited; users may only bring claims in an individual capacity.",
+        "start_position": 99,
+        "end_position": 201,
+        "token_count": 15,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "However, claims regarding intellectual property theft or software infringement may be resolved in small claims court.",
+        "start_position": 202,
+        "end_position": 319,
+        "token_count": 16,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "emp_01",
+    "document_text": "All inventions, code, designs, or improvements created by the Employee during the hours of employment belong entirely to the Employer. The Employee hereby assigns all rights and titles in such works to the Employer. However, any software developed on the Employee's personal laptop, outside contracted working hours, and without utilizing company proprietary tools remains the property of the Employee.",
+    "question": "If I write code at home on my personal laptop on weekends using my own tools, does my boss own it?",
+    "answer": "No, any software developed on personal laptops, outside work hours and without company proprietary tools remains the property of the employee.",
+    "difficulty": "hard",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "SaaS Employee Contract Template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "All inventions, code, designs, or improvements created by the Employee during the hours of employment belong entirely to the Employer.",
+        "start_position": 0,
+        "end_position": 135,
+        "token_count": 20,
+        "is_relevant": true,
+        "relevance_score": 1
+      },
+      {
+        "id": 1,
+        "text": "The Employee hereby assigns all rights and titles in such works to the Employer.",
+        "start_position": 136,
+        "end_position": 216,
+        "token_count": 14,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "However, any software developed on the Employee's personal laptop, outside contracted working hours, and without utilizing company proprietary tools remains the property of the Employee.",
+        "start_position": 217,
+        "end_position": 404,
+        "token_count": 25,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "emp_02",
+    "document_text": "The Employee agrees not to compete with the Employer for a period of one (1) year following termination, within a 50-mile radius. This restriction applies strictly to businesses in the sector of AI search routers. In some states, such as California, post-employment non-compete covenants are legally unenforceable and void.",
+    "question": "Is the 1-year non-compete clause enforceable if the employee resides in California?",
+    "answer": "No, because post-employment non-compete covenants are legally unenforceable and void under California law.",
+    "difficulty": "medium",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Standard AI non-compete terms",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "The Employee agrees not to compete with the Employer for a period of one (1) year following termination, within a 50-mile radius.",
+        "start_position": 0,
+        "end_position": 129,
+        "token_count": 22,
+        "is_relevant": true,
+        "relevance_score": 1
+      },
+      {
+        "id": 1,
+        "text": "This restriction applies strictly to businesses in the sector of AI search routers.",
+        "start_position": 130,
+        "end_position": 213,
+        "token_count": 13,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "In some states, such as California, post-employment non-compete covenants are legally unenforceable and void.",
+        "start_position": 214,
+        "end_position": 323,
+        "token_count": 14,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "contract_01",
+    "document_text": "Neither party shall be liable for failure to perform obligations under this contract if such failure arises from acts of God, war, riots, strikes, or government lockdowns ('Force Majeure'). The affected party must notify the other party within 5 business days of the force majeure event. If a force majeure event hinders performance for more than 30 consecutive days, either party may terminate the contract with zero penalty.",
+    "question": "Can I terminate our contract without paying a penalty if a strike prevents the other party from working for 6 weeks?",
+    "answer": "Yes. A strike is a Force Majeure event. If the event continues for more than 30 days (6 weeks is 42 days), either party may terminate the contract with zero penalty.",
+    "difficulty": "hard",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Standard Services Vendor Contract",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Neither party shall be liable for failure to perform obligations under this contract if such failure arises from acts of God, war, riots, strikes, or government lockdowns ('Force Majeure').",
+        "start_position": 0,
+        "end_position": 190,
+        "token_count": 29,
+        "is_relevant": true,
+        "relevance_score": 2
+      },
+      {
+        "id": 1,
+        "text": "The affected party must notify the other party within 5 business days of the force majeure event.",
+        "start_position": 191,
+        "end_position": 288,
+        "token_count": 17,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "If a force majeure event hinders performance for more than 30 consecutive days, either party may terminate the contract with zero penalty.",
+        "start_position": 289,
+        "end_position": 428,
+        "token_count": 22,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "contract_02",
+    "document_text": "Standard payment terms are Net 30 from invoice receipt. Late payments will accrue interest at a rate of 1.5% per month. Clients who settle accounts within 10 days of invoice receipt are eligible for a 2% early payment discount.",
+    "question": "How quickly must I pay the invoice to get a discount on my purchase?",
+    "answer": "Within 10 days of invoice receipt to qualify for the 2% discount.",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Payment Net terms",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Standard payment terms are Net 30 from invoice receipt.",
+        "start_position": 0,
+        "end_position": 55,
+        "token_count": 9,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Late payments will accrue interest at a rate of 1.5% per month.",
+        "start_position": 56,
+        "end_position": 119,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "Clients who settle accounts within 10 days of invoice receipt are eligible for a 2% early payment discount.",
+        "start_position": 120,
+        "end_position": 227,
+        "token_count": 18,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "nda_04",
+    "document_text": "The Disclosing Party agrees to indemnify the Receiving Party against direct damages up to $10,000 arising from third-party IP claims due to Discloser's materials. Under no circumstances will either party be liable for indirect, special, or consequential damages. This indemnification cap is completely void in cases of willful misconduct or gross negligence.",
+    "question": "If CorpA willfully discloses CorpB's code, is the $10,000 indemnification limit still active?",
+    "answer": "No. The indemnification cap is void in cases of willful misconduct.",
+    "difficulty": "hard",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "NDA Indemnity Clause",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "The Disclosing Party agrees to indemnify the Receiving Party against direct damages up to $10,000 arising from third-party IP claims due to Discloser's materials.",
+        "start_position": 0,
+        "end_position": 162,
+        "token_count": 24,
+        "is_relevant": true,
+        "relevance_score": 1
+      },
+      {
+        "id": 1,
+        "text": "Under no circumstances will either party be liable for indirect, special, or consequential damages.",
+        "start_position": 163,
+        "end_position": 262,
+        "token_count": 14,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "This indemnification cap is completely void in cases of willful misconduct or gross negligence.",
+        "start_position": 263,
+        "end_position": 358,
+        "token_count": 14,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "employment_01",
+    "document_text": "Employment Agreement between EmployerCo and EmployeeCo. The term is indefinite until terminated by either party with 30 days notice. Confidentiality obligations survive termination for 2 years.",
+    "question": "How much notice is required to terminate the employment agreement?",
+    "answer": "30 days notice by either party.",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Standard Employment Agreement v1",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Employment Agreement between EmployerCo and EmployeeCo.",
+        "start_position": 0,
+        "end_position": 55,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "The term is indefinite until terminated by either party with 30 days notice.",
+        "start_position": 56,
+        "end_position": 138,
+        "token_count": 13,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Confidentiality obligations survive termination for 2 years.",
+        "start_position": 139,
+        "end_position": 190,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "privacy_policy_01",
+    "document_text": "Privacy Policy for AppY. We collect email addresses and usage analytics. Data is retained for 12 months. Users may request deletion of their data at any time via the account settings page.",
+    "question": "How long is user data retained under the privacy policy?",
+    "answer": "12 months.",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "AppY Privacy Policy v1",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "We collect email addresses and usage analytics.",
+        "start_position": 0,
+        "end_position": 49,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Data is retained for 12 months.",
+        "start_position": 50,
+        "end_position": 78,
+        "token_count": 6,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Users may request deletion of their data at any time via the account settings page.",
+        "start_position": 79,
+        "end_position": 158,
+        "token_count": 15,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "nda_05",
+    "document_text": "Non‑Disclosure Agreement between CorpA and CorpB. The term is 5 years. Confidential information must be returned upon termination. Governing law: Delaware.",
+    "question": "What is the term of the NDA?",
+    "answer": "5 years",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated nda template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Non‑Disclosure Agreement between CorpA and CorpB.",
+        "start_position": 0,
+        "end_position": 49,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "The term is 5 years.",
+        "start_position": 50,
+        "end_position": 70,
+        "token_count": 5,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Confidential information must be returned upon termination.",
+        "start_position": 71,
+        "end_position": 130,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Governing law: Delaware.",
+        "start_position": 131,
+        "end_position": 155,
+        "token_count": 3,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "nda_06",
+    "document_text": "Non‑Disclosure Agreement between CorpA and CorpB. The term is 5 years. Confidential information must be returned upon termination. Governing law: Delaware.",
+    "question": "What is the term of the NDA?",
+    "answer": "5 years",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated nda template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Non‑Disclosure Agreement between CorpA and CorpB.",
+        "start_position": 0,
+        "end_position": 49,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "The term is 5 years.",
+        "start_position": 50,
+        "end_position": 70,
+        "token_count": 5,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Confidential information must be returned upon termination.",
+        "start_position": 71,
+        "end_position": 130,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Governing law: Delaware.",
+        "start_position": 131,
+        "end_position": 155,
+        "token_count": 3,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "employment_02",
+    "document_text": "Employment Agreement between EmployerCo and EmployeeCo. Either party may terminate with 30 days notice. Salary is $5000 per month. Confidentiality survives for 24 months after termination.",
+    "question": "How many days notice are required for termination?",
+    "answer": "30 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated employment template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Employment Agreement between EmployerCo and EmployeeCo.",
+        "start_position": 0,
+        "end_position": 55,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Either party may terminate with 30 days notice.",
+        "start_position": 56,
+        "end_position": 103,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Salary is $5000 per month.",
+        "start_position": 104,
+        "end_position": 130,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Confidentiality survives for 24 months after termination.",
+        "start_position": 131,
+        "end_position": 188,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "employment_03",
+    "document_text": "Employment Agreement between EmployerCo and EmployeeCo. Either party may terminate with 30 days notice. Salary is $5000 per month. Confidentiality survives for 24 months after termination.",
+    "question": "How many days notice are required for termination?",
+    "answer": "30 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated employment template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Employment Agreement between EmployerCo and EmployeeCo.",
+        "start_position": 0,
+        "end_position": 55,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Either party may terminate with 30 days notice.",
+        "start_position": 56,
+        "end_position": 103,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Salary is $5000 per month.",
+        "start_position": 104,
+        "end_position": 130,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Confidentiality survives for 24 months after termination.",
+        "start_position": 131,
+        "end_position": 188,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "employment_04",
+    "document_text": "Employment Agreement between EmployerCo and EmployeeCo. Either party may terminate with 30 days notice. Salary is $5000 per month. Confidentiality survives for 24 months after termination.",
+    "question": "How many days notice are required for termination?",
+    "answer": "30 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated employment template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Employment Agreement between EmployerCo and EmployeeCo.",
+        "start_position": 0,
+        "end_position": 55,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Either party may terminate with 30 days notice.",
+        "start_position": 56,
+        "end_position": 103,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Salary is $5000 per month.",
+        "start_position": 104,
+        "end_position": 130,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Confidentiality survives for 24 months after termination.",
+        "start_position": 131,
+        "end_position": 188,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "employment_05",
+    "document_text": "Employment Agreement between EmployerCo and EmployeeCo. Either party may terminate with 30 days notice. Salary is $5000 per month. Confidentiality survives for 24 months after termination.",
+    "question": "How many days notice are required for termination?",
+    "answer": "30 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated employment template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Employment Agreement between EmployerCo and EmployeeCo.",
+        "start_position": 0,
+        "end_position": 55,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Either party may terminate with 30 days notice.",
+        "start_position": 56,
+        "end_position": 103,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Salary is $5000 per month.",
+        "start_position": 104,
+        "end_position": 130,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Confidentiality survives for 24 months after termination.",
+        "start_position": 131,
+        "end_position": 188,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "employment_06",
+    "document_text": "Employment Agreement between EmployerCo and EmployeeCo. Either party may terminate with 30 days notice. Salary is $5000 per month. Confidentiality survives for 24 months after termination.",
+    "question": "How many days notice are required for termination?",
+    "answer": "30 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated employment template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Employment Agreement between EmployerCo and EmployeeCo.",
+        "start_position": 0,
+        "end_position": 55,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Either party may terminate with 30 days notice.",
+        "start_position": 56,
+        "end_position": 103,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Salary is $5000 per month.",
+        "start_position": 104,
+        "end_position": 130,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Confidentiality survives for 24 months after termination.",
+        "start_position": 131,
+        "end_position": 188,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "saas_01",
+    "document_text": "SaaS Service Terms for AppX. Users must be at least 13 years old. The service may be terminated for violation of the Acceptable Use Policy. Data is retained for 12 months.",
+    "question": "What is the minimum age to use the service?",
+    "answer": "13 years",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated saas template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "SaaS Service Terms for AppX.",
+        "start_position": 0,
+        "end_position": 28,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Users must be at least 13 years old.",
+        "start_position": 29,
+        "end_position": 65,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "The service may be terminated for violation of the Acceptable Use Policy.",
+        "start_position": 66,
+        "end_position": 139,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Data is retained for 12 months.",
+        "start_position": 140,
+        "end_position": 171,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "saas_02",
+    "document_text": "SaaS Service Terms for AppX. Users must be at least 13 years old. The service may be terminated for violation of the Acceptable Use Policy. Data is retained for 12 months.",
+    "question": "What is the minimum age to use the service?",
+    "answer": "13 years",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated saas template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "SaaS Service Terms for AppX.",
+        "start_position": 0,
+        "end_position": 28,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Users must be at least 13 years old.",
+        "start_position": 29,
+        "end_position": 65,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "The service may be terminated for violation of the Acceptable Use Policy.",
+        "start_position": 66,
+        "end_position": 139,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Data is retained for 12 months.",
+        "start_position": 140,
+        "end_position": 171,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "saas_03",
+    "document_text": "SaaS Service Terms for AppX. Users must be at least 13 years old. The service may be terminated for violation of the Acceptable Use Policy. Data is retained for 12 months.",
+    "question": "What is the minimum age to use the service?",
+    "answer": "13 years",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated saas template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "SaaS Service Terms for AppX.",
+        "start_position": 0,
+        "end_position": 28,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Users must be at least 13 years old.",
+        "start_position": 29,
+        "end_position": 65,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "The service may be terminated for violation of the Acceptable Use Policy.",
+        "start_position": 66,
+        "end_position": 139,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Data is retained for 12 months.",
+        "start_position": 140,
+        "end_position": 171,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "saas_04",
+    "document_text": "SaaS Service Terms for AppX. Users must be at least 13 years old. The service may be terminated for violation of the Acceptable Use Policy. Data is retained for 12 months.",
+    "question": "What is the minimum age to use the service?",
+    "answer": "13 years",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated saas template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "SaaS Service Terms for AppX.",
+        "start_position": 0,
+        "end_position": 28,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Users must be at least 13 years old.",
+        "start_position": 29,
+        "end_position": 65,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "The service may be terminated for violation of the Acceptable Use Policy.",
+        "start_position": 66,
+        "end_position": 139,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Data is retained for 12 months.",
+        "start_position": 140,
+        "end_position": 171,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "saas_05",
+    "document_text": "SaaS Service Terms for AppX. Users must be at least 13 years old. The service may be terminated for violation of the Acceptable Use Policy. Data is retained for 12 months.",
+    "question": "What is the minimum age to use the service?",
+    "answer": "13 years",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated saas template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "SaaS Service Terms for AppX.",
+        "start_position": 0,
+        "end_position": 28,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Users must be at least 13 years old.",
+        "start_position": 29,
+        "end_position": 65,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "The service may be terminated for violation of the Acceptable Use Policy.",
+        "start_position": 66,
+        "end_position": 139,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Data is retained for 12 months.",
+        "start_position": 140,
+        "end_position": 171,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "saas_06",
+    "document_text": "SaaS Service Terms for AppX. Users must be at least 13 years old. The service may be terminated for violation of the Acceptable Use Policy. Data is retained for 12 months.",
+    "question": "What is the minimum age to use the service?",
+    "answer": "13 years",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated saas template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "SaaS Service Terms for AppX.",
+        "start_position": 0,
+        "end_position": 28,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Users must be at least 13 years old.",
+        "start_position": 29,
+        "end_position": 65,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "The service may be terminated for violation of the Acceptable Use Policy.",
+        "start_position": 66,
+        "end_position": 139,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Data is retained for 12 months.",
+        "start_position": 140,
+        "end_position": 171,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "service_01",
+    "document_text": "Service Agreement for ProviderInc providing cloud hosting. Payment is due within 30 days of invoice. Liability is limited to the amount paid.",
+    "question": "Within how many days must payment be made?",
+    "answer": "30 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated service template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Service Agreement for ProviderInc providing cloud hosting.",
+        "start_position": 0,
+        "end_position": 58,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Payment is due within 30 days of invoice.",
+        "start_position": 59,
+        "end_position": 100,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Liability is limited to the amount paid.",
+        "start_position": 101,
+        "end_position": 141,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "service_02",
+    "document_text": "Service Agreement for ProviderInc providing cloud hosting. Payment is due within 30 days of invoice. Liability is limited to the amount paid.",
+    "question": "Within how many days must payment be made?",
+    "answer": "30 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated service template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Service Agreement for ProviderInc providing cloud hosting.",
+        "start_position": 0,
+        "end_position": 58,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Payment is due within 30 days of invoice.",
+        "start_position": 59,
+        "end_position": 100,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Liability is limited to the amount paid.",
+        "start_position": 101,
+        "end_position": 141,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "service_03",
+    "document_text": "Service Agreement for ProviderInc providing cloud hosting. Payment is due within 30 days of invoice. Liability is limited to the amount paid.",
+    "question": "Within how many days must payment be made?",
+    "answer": "30 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated service template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Service Agreement for ProviderInc providing cloud hosting.",
+        "start_position": 0,
+        "end_position": 58,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Payment is due within 30 days of invoice.",
+        "start_position": 59,
+        "end_position": 100,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Liability is limited to the amount paid.",
+        "start_position": 101,
+        "end_position": 141,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "service_04",
+    "document_text": "Service Agreement for ProviderInc providing cloud hosting. Payment is due within 30 days of invoice. Liability is limited to the amount paid.",
+    "question": "Within how many days must payment be made?",
+    "answer": "30 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated service template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Service Agreement for ProviderInc providing cloud hosting.",
+        "start_position": 0,
+        "end_position": 58,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Payment is due within 30 days of invoice.",
+        "start_position": 59,
+        "end_position": 100,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Liability is limited to the amount paid.",
+        "start_position": 101,
+        "end_position": 141,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "service_05",
+    "document_text": "Service Agreement for ProviderInc providing cloud hosting. Payment is due within 30 days of invoice. Liability is limited to the amount paid.",
+    "question": "Within how many days must payment be made?",
+    "answer": "30 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated service template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Service Agreement for ProviderInc providing cloud hosting.",
+        "start_position": 0,
+        "end_position": 58,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Payment is due within 30 days of invoice.",
+        "start_position": 59,
+        "end_position": 100,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Liability is limited to the amount paid.",
+        "start_position": 101,
+        "end_position": 141,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "service_06",
+    "document_text": "Service Agreement for ProviderInc providing cloud hosting. Payment is due within 30 days of invoice. Liability is limited to the amount paid.",
+    "question": "Within how many days must payment be made?",
+    "answer": "30 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated service template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Service Agreement for ProviderInc providing cloud hosting.",
+        "start_position": 0,
+        "end_position": 58,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Payment is due within 30 days of invoice.",
+        "start_position": 59,
+        "end_position": 100,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Liability is limited to the amount paid.",
+        "start_position": 101,
+        "end_position": 141,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "vendor_01",
+    "document_text": "Vendor Contract between BuyerLtd and VendorLtd. Delivery must occur within 7 days. Warranty period is 12 months.",
+    "question": "How many days for delivery?",
+    "answer": "7 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated vendor template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Vendor Contract between BuyerLtd and VendorLtd.",
+        "start_position": 0,
+        "end_position": 47,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Delivery must occur within 7 days.",
+        "start_position": 48,
+        "end_position": 82,
+        "token_count": 6,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Warranty period is 12 months.",
+        "start_position": 83,
+        "end_position": 112,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "vendor_02",
+    "document_text": "Vendor Contract between BuyerLtd and VendorLtd. Delivery must occur within 7 days. Warranty period is 12 months.",
+    "question": "How many days for delivery?",
+    "answer": "7 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated vendor template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Vendor Contract between BuyerLtd and VendorLtd.",
+        "start_position": 0,
+        "end_position": 47,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Delivery must occur within 7 days.",
+        "start_position": 48,
+        "end_position": 82,
+        "token_count": 6,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Warranty period is 12 months.",
+        "start_position": 83,
+        "end_position": 112,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "vendor_03",
+    "document_text": "Vendor Contract between BuyerLtd and VendorLtd. Delivery must occur within 7 days. Warranty period is 12 months.",
+    "question": "How many days for delivery?",
+    "answer": "7 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated vendor template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Vendor Contract between BuyerLtd and VendorLtd.",
+        "start_position": 0,
+        "end_position": 47,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Delivery must occur within 7 days.",
+        "start_position": 48,
+        "end_position": 82,
+        "token_count": 6,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Warranty period is 12 months.",
+        "start_position": 83,
+        "end_position": 112,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "vendor_04",
+    "document_text": "Vendor Contract between BuyerLtd and VendorLtd. Delivery must occur within 7 days. Warranty period is 12 months.",
+    "question": "How many days for delivery?",
+    "answer": "7 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated vendor template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Vendor Contract between BuyerLtd and VendorLtd.",
+        "start_position": 0,
+        "end_position": 47,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Delivery must occur within 7 days.",
+        "start_position": 48,
+        "end_position": 82,
+        "token_count": 6,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Warranty period is 12 months.",
+        "start_position": 83,
+        "end_position": 112,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "vendor_05",
+    "document_text": "Vendor Contract between BuyerLtd and VendorLtd. Delivery must occur within 7 days. Warranty period is 12 months.",
+    "question": "How many days for delivery?",
+    "answer": "7 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated vendor template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Vendor Contract between BuyerLtd and VendorLtd.",
+        "start_position": 0,
+        "end_position": 47,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Delivery must occur within 7 days.",
+        "start_position": 48,
+        "end_position": 82,
+        "token_count": 6,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Warranty period is 12 months.",
+        "start_position": 83,
+        "end_position": 112,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "vendor_06",
+    "document_text": "Vendor Contract between BuyerLtd and VendorLtd. Delivery must occur within 7 days. Warranty period is 12 months.",
+    "question": "How many days for delivery?",
+    "answer": "7 days",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated vendor template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Vendor Contract between BuyerLtd and VendorLtd.",
+        "start_position": 0,
+        "end_position": 47,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Delivery must occur within 7 days.",
+        "start_position": 48,
+        "end_position": 82,
+        "token_count": 6,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Warranty period is 12 months.",
+        "start_position": 83,
+        "end_position": 112,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "licensing_01",
+    "document_text": "Licensing Agreement for SuperApp. License is non‑exclusive and non‑transferable. Term is 3 years. Renewal requires written notice 30 days before expiry.",
+    "question": "Is the license exclusive?",
+    "answer": "No, it is non‑exclusive",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated licensing template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Licensing Agreement for SuperApp.",
+        "start_position": 0,
+        "end_position": 33,
+        "token_count": 4,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 1,
+        "text": "License is non‑exclusive and non‑transferable.",
+        "start_position": 34,
+        "end_position": 80,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "Term is 3 years.",
+        "start_position": 81,
+        "end_position": 97,
+        "token_count": 4,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Renewal requires written notice 30 days before expiry.",
+        "start_position": 98,
+        "end_position": 152,
+        "token_count": 8,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "licensing_02",
+    "document_text": "Licensing Agreement for SuperApp. License is non‑exclusive and non‑transferable. Term is 3 years. Renewal requires written notice 30 days before expiry.",
+    "question": "Is the license exclusive?",
+    "answer": "No, it is non‑exclusive",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated licensing template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Licensing Agreement for SuperApp.",
+        "start_position": 0,
+        "end_position": 33,
+        "token_count": 4,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 1,
+        "text": "License is non‑exclusive and non‑transferable.",
+        "start_position": 34,
+        "end_position": 80,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "Term is 3 years.",
+        "start_position": 81,
+        "end_position": 97,
+        "token_count": 4,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Renewal requires written notice 30 days before expiry.",
+        "start_position": 98,
+        "end_position": 152,
+        "token_count": 8,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "licensing_03",
+    "document_text": "Licensing Agreement for SuperApp. License is non‑exclusive and non‑transferable. Term is 3 years. Renewal requires written notice 30 days before expiry.",
+    "question": "Is the license exclusive?",
+    "answer": "No, it is non‑exclusive",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated licensing template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Licensing Agreement for SuperApp.",
+        "start_position": 0,
+        "end_position": 33,
+        "token_count": 4,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 1,
+        "text": "License is non‑exclusive and non‑transferable.",
+        "start_position": 34,
+        "end_position": 80,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "Term is 3 years.",
+        "start_position": 81,
+        "end_position": 97,
+        "token_count": 4,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Renewal requires written notice 30 days before expiry.",
+        "start_position": 98,
+        "end_position": 152,
+        "token_count": 8,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "licensing_04",
+    "document_text": "Licensing Agreement for SuperApp. License is non‑exclusive and non‑transferable. Term is 3 years. Renewal requires written notice 30 days before expiry.",
+    "question": "Is the license exclusive?",
+    "answer": "No, it is non‑exclusive",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated licensing template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Licensing Agreement for SuperApp.",
+        "start_position": 0,
+        "end_position": 33,
+        "token_count": 4,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 1,
+        "text": "License is non‑exclusive and non‑transferable.",
+        "start_position": 34,
+        "end_position": 80,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "Term is 3 years.",
+        "start_position": 81,
+        "end_position": 97,
+        "token_count": 4,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Renewal requires written notice 30 days before expiry.",
+        "start_position": 98,
+        "end_position": 152,
+        "token_count": 8,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "licensing_05",
+    "document_text": "Licensing Agreement for SuperApp. License is non‑exclusive and non‑transferable. Term is 3 years. Renewal requires written notice 30 days before expiry.",
+    "question": "Is the license exclusive?",
+    "answer": "No, it is non‑exclusive",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated licensing template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Licensing Agreement for SuperApp.",
+        "start_position": 0,
+        "end_position": 33,
+        "token_count": 4,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 1,
+        "text": "License is non‑exclusive and non‑transferable.",
+        "start_position": 34,
+        "end_position": 80,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "Term is 3 years.",
+        "start_position": 81,
+        "end_position": 97,
+        "token_count": 4,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Renewal requires written notice 30 days before expiry.",
+        "start_position": 98,
+        "end_position": 152,
+        "token_count": 8,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "licensing_06",
+    "document_text": "Licensing Agreement for SuperApp. License is non‑exclusive and non‑transferable. Term is 3 years. Renewal requires written notice 30 days before expiry.",
+    "question": "Is the license exclusive?",
+    "answer": "No, it is non‑exclusive",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated licensing template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Licensing Agreement for SuperApp.",
+        "start_position": 0,
+        "end_position": 33,
+        "token_count": 4,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 1,
+        "text": "License is non‑exclusive and non‑transferable.",
+        "start_position": 34,
+        "end_position": 80,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "Term is 3 years.",
+        "start_position": 81,
+        "end_position": 97,
+        "token_count": 4,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Renewal requires written notice 30 days before expiry.",
+        "start_position": 98,
+        "end_position": 152,
+        "token_count": 8,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "privacy_01",
+    "document_text": "Privacy Policy for AppY. We collect email addresses and usage analytics. Data is stored for 12 months. Users may request deletion at any time.",
+    "question": "What types of data are collected?",
+    "answer": "email addresses and usage analytics",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated privacy template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Privacy Policy for AppY.",
+        "start_position": 0,
+        "end_position": 24,
+        "token_count": 4,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "We collect email addresses and usage analytics.",
+        "start_position": 25,
+        "end_position": 72,
+        "token_count": 7,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Data is stored for 12 months.",
+        "start_position": 73,
+        "end_position": 102,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Users may request deletion at any time.",
+        "start_position": 103,
+        "end_position": 142,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "privacy_02",
+    "document_text": "Privacy Policy for AppY. We collect email addresses and usage analytics. Data is stored for 12 months. Users may request deletion at any time.",
+    "question": "What types of data are collected?",
+    "answer": "email addresses and usage analytics",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated privacy template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Privacy Policy for AppY.",
+        "start_position": 0,
+        "end_position": 24,
+        "token_count": 4,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "We collect email addresses and usage analytics.",
+        "start_position": 25,
+        "end_position": 72,
+        "token_count": 7,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Data is stored for 12 months.",
+        "start_position": 73,
+        "end_position": 102,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Users may request deletion at any time.",
+        "start_position": 103,
+        "end_position": 142,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "privacy_03",
+    "document_text": "Privacy Policy for AppY. We collect email addresses and usage analytics. Data is stored for 12 months. Users may request deletion at any time.",
+    "question": "What types of data are collected?",
+    "answer": "email addresses and usage analytics",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated privacy template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Privacy Policy for AppY.",
+        "start_position": 0,
+        "end_position": 24,
+        "token_count": 4,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "We collect email addresses and usage analytics.",
+        "start_position": 25,
+        "end_position": 72,
+        "token_count": 7,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Data is stored for 12 months.",
+        "start_position": 73,
+        "end_position": 102,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Users may request deletion at any time.",
+        "start_position": 103,
+        "end_position": 142,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "privacy_04",
+    "document_text": "Privacy Policy for AppY. We collect email addresses and usage analytics. Data is stored for 12 months. Users may request deletion at any time.",
+    "question": "What types of data are collected?",
+    "answer": "email addresses and usage analytics",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated privacy template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Privacy Policy for AppY.",
+        "start_position": 0,
+        "end_position": 24,
+        "token_count": 4,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "We collect email addresses and usage analytics.",
+        "start_position": 25,
+        "end_position": 72,
+        "token_count": 7,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Data is stored for 12 months.",
+        "start_position": 73,
+        "end_position": 102,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Users may request deletion at any time.",
+        "start_position": 103,
+        "end_position": 142,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "privacy_05",
+    "document_text": "Privacy Policy for AppY. We collect email addresses and usage analytics. Data is stored for 12 months. Users may request deletion at any time.",
+    "question": "What types of data are collected?",
+    "answer": "email addresses and usage analytics",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated privacy template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Privacy Policy for AppY.",
+        "start_position": 0,
+        "end_position": 24,
+        "token_count": 4,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "We collect email addresses and usage analytics.",
+        "start_position": 25,
+        "end_position": 72,
+        "token_count": 7,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Data is stored for 12 months.",
+        "start_position": 73,
+        "end_position": 102,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Users may request deletion at any time.",
+        "start_position": 103,
+        "end_position": 142,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "privacy_06",
+    "document_text": "Privacy Policy for AppY. We collect email addresses and usage analytics. Data is stored for 12 months. Users may request deletion at any time.",
+    "question": "What types of data are collected?",
+    "answer": "email addresses and usage analytics",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated privacy template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Privacy Policy for AppY.",
+        "start_position": 0,
+        "end_position": 24,
+        "token_count": 4,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "We collect email addresses and usage analytics.",
+        "start_position": 25,
+        "end_position": 72,
+        "token_count": 7,
+        "is_relevant": true,
+        "relevance_score": 3
+      },
+      {
+        "id": 2,
+        "text": "Data is stored for 12 months.",
+        "start_position": 73,
+        "end_position": 102,
+        "token_count": 6,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Users may request deletion at any time.",
+        "start_position": 103,
+        "end_position": 142,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      }
+    ]
+  },
+  {
+    "document_id": "dpa_01",
+    "document_text": "Data Processing Agreement between DataCtrl and DataProc. Processor must implement appropriate security measures and may not sub‑process without consent. Data breach must be reported within 72 hours.",
+    "question": "Within how many hours must a data breach be reported?",
+    "answer": "72 hours",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated dpa template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Data Processing Agreement between DataCtrl and DataProc.",
+        "start_position": 0,
+        "end_position": 56,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Processor must implement appropriate security measures and may not sub‑process without consent.",
+        "start_position": 57,
+        "end_position": 152,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "Data breach must be reported within 72 hours.",
+        "start_position": 153,
+        "end_position": 198,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "dpa_02",
+    "document_text": "Data Processing Agreement between DataCtrl and DataProc. Processor must implement appropriate security measures and may not sub‑process without consent. Data breach must be reported within 72 hours.",
+    "question": "Within how many hours must a data breach be reported?",
+    "answer": "72 hours",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated dpa template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Data Processing Agreement between DataCtrl and DataProc.",
+        "start_position": 0,
+        "end_position": 56,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Processor must implement appropriate security measures and may not sub‑process without consent.",
+        "start_position": 57,
+        "end_position": 152,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "Data breach must be reported within 72 hours.",
+        "start_position": 153,
+        "end_position": 198,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "dpa_03",
+    "document_text": "Data Processing Agreement between DataCtrl and DataProc. Processor must implement appropriate security measures and may not sub‑process without consent. Data breach must be reported within 72 hours.",
+    "question": "Within how many hours must a data breach be reported?",
+    "answer": "72 hours",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated dpa template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Data Processing Agreement between DataCtrl and DataProc.",
+        "start_position": 0,
+        "end_position": 56,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Processor must implement appropriate security measures and may not sub‑process without consent.",
+        "start_position": 57,
+        "end_position": 152,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "Data breach must be reported within 72 hours.",
+        "start_position": 153,
+        "end_position": 198,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "dpa_04",
+    "document_text": "Data Processing Agreement between DataCtrl and DataProc. Processor must implement appropriate security measures and may not sub‑process without consent. Data breach must be reported within 72 hours.",
+    "question": "Within how many hours must a data breach be reported?",
+    "answer": "72 hours",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated dpa template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Data Processing Agreement between DataCtrl and DataProc.",
+        "start_position": 0,
+        "end_position": 56,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Processor must implement appropriate security measures and may not sub‑process without consent.",
+        "start_position": 57,
+        "end_position": 152,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "Data breach must be reported within 72 hours.",
+        "start_position": 153,
+        "end_position": 198,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "dpa_05",
+    "document_text": "Data Processing Agreement between DataCtrl and DataProc. Processor must implement appropriate security measures and may not sub‑process without consent. Data breach must be reported within 72 hours.",
+    "question": "Within how many hours must a data breach be reported?",
+    "answer": "72 hours",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated dpa template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Data Processing Agreement between DataCtrl and DataProc.",
+        "start_position": 0,
+        "end_position": 56,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Processor must implement appropriate security measures and may not sub‑process without consent.",
+        "start_position": 57,
+        "end_position": 152,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "Data breach must be reported within 72 hours.",
+        "start_position": 153,
+        "end_position": 198,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "dpa_06",
+    "document_text": "Data Processing Agreement between DataCtrl and DataProc. Processor must implement appropriate security measures and may not sub‑process without consent. Data breach must be reported within 72 hours.",
+    "question": "Within how many hours must a data breach be reported?",
+    "answer": "72 hours",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated dpa template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Data Processing Agreement between DataCtrl and DataProc.",
+        "start_position": 0,
+        "end_position": 56,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Processor must implement appropriate security measures and may not sub‑process without consent.",
+        "start_position": 57,
+        "end_position": 152,
+        "token_count": 12,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "Data breach must be reported within 72 hours.",
+        "start_position": 153,
+        "end_position": 198,
+        "token_count": 8,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "tos_05",
+    "document_text": "Terms of Service for AppX. Users must not engage in illegal activities. The service may suspend accounts for violations. Governing jurisdiction: California.",
+    "question": "What jurisdiction governs the Terms of Service?",
+    "answer": "California",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated tos template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Terms of Service for AppX.",
+        "start_position": 0,
+        "end_position": 26,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Users must not engage in illegal activities.",
+        "start_position": 27,
+        "end_position": 71,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "The service may suspend accounts for violations.",
+        "start_position": 72,
+        "end_position": 120,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Governing jurisdiction: California.",
+        "start_position": 121,
+        "end_position": 156,
+        "token_count": 3,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  },
+  {
+    "document_id": "tos_06",
+    "document_text": "Terms of Service for AppX. Users must not engage in illegal activities. The service may suspend accounts for violations. Governing jurisdiction: California.",
+    "question": "What jurisdiction governs the Terms of Service?",
+    "answer": "California",
+    "difficulty": "easy",
+    "provenance": {
+      "source_type": "synthetic",
+      "source_name": "Generated tos template",
+      "license": "CC0"
+    },
+    "chunks": [
+      {
+        "id": 0,
+        "text": "Terms of Service for AppX.",
+        "start_position": 0,
+        "end_position": 26,
+        "token_count": 5,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 1,
+        "text": "Users must not engage in illegal activities.",
+        "start_position": 27,
+        "end_position": 71,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 2,
+        "text": "The service may suspend accounts for violations.",
+        "start_position": 72,
+        "end_position": 120,
+        "token_count": 7,
+        "is_relevant": false,
+        "relevance_score": 0
+      },
+      {
+        "id": 3,
+        "text": "Governing jurisdiction: California.",
+        "start_position": 121,
+        "end_position": 156,
+        "token_count": 3,
+        "is_relevant": true,
+        "relevance_score": 3
+      }
+    ]
+  }
+]

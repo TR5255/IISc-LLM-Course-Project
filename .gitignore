@@ -1,0 +1,79 @@
+# --- Python byte-compiled & cache ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# --- Distribution / packaging ---
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Virtual environments ---
+venv/
+.venv/
+env/
+.env/
+
+# --- IDE files ---
+.vscode/
+.idea/
+
+# --- Testing ---
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- Machine learning model artefacts ---
+# Trained model checkpoints and weights — do NOT commit
+models/saved/
+*.pkl
+*.bin
+*.safetensors
+*.pt
+*.ckpt
+*.h5
+
+# --- Generated training data splits ---
+# Produced by training/train.py — regenerate from benchmark
+data/training/
+
+# --- External dataset raw downloads ---
+# Run data/external/cuad/download_cuad.sh or HuggingFace datasets.load_dataset()
+# to populate these directories locally.
+data/external/cuad/raw/
+data/external/lexglue/raw/
+data/external/**/*.json
+data/external/**/*.csv
+data/external/**/*.zip
+data/external/**/*.tar.gz
+
+# --- Generated reports ---
+sweep_analysis_report.html
+reports/generated/
+
+# --- Experiment run outputs ---
+# JSON and CSV run logs are machine-generated; regenerate with experiments/run.py
+experiments/runs/
+
+# --- Secrets and environment files ---
+.env
+.env.*
+*.secret
+
+# --- OS files ---
+.DS_Store
+Thumbs.db

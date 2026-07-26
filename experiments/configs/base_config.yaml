@@ -1,0 +1,20 @@
+experiment:
+  id: "base_experiment_v1"
+  description: "Initial pipeline test validation of baseline scoring and simple threshold routing"
+
+model:
+  name: "random"      # Options: random, bm25, tfidf, embedding
+  seed: 42
+
+dataset:
+  version: "mock_legal_v1"
+  chunk_size: 1        # sentences per chunk
+  splitter_method: "sentence"
+
+policy:
+  type: "threshold"   # Options: threshold, top_k
+  threshold: 0.4
+  k: 2
+
+evaluation:
+  downstream_model: "mock-gpt-4o"

@@ -1,0 +1,24 @@
+experiment:
+  id: "sweep_experiment_v1"
+  description: "Parameter sweep over thresholds and k values for all baseline scorers"
+
+model:
+  name: "all"         # Ignored during sweep — all scorers are evaluated
+  seed: 42
+
+dataset:
+  version: "mock_legal_v1"
+  chunk_size: 1
+  splitter_method: "sentence"
+
+policy:
+  type: "threshold"   # Default for non-sweep runs
+  threshold: 0.4
+  k: 2
+
+sweep:
+  thresholds: [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9]
+  k_values: [1, 2, 3, 5, 10]
+
+evaluation:
+  downstream_model: "mock-gpt-4o"

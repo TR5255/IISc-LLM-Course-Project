@@ -1,0 +1,32 @@
+# training/configs/neural_router.yaml
+# Neural Router Training Configuration (Qwen2.5-0.5B / SmolLM)
+
+model:
+  name: "Qwen/Qwen2.5-0.5B"
+  max_sequence_length: 512
+  num_labels: 2
+  device: "auto"
+
+training:
+  batch_size: 1
+  gradient_accumulation_steps: 4
+  learning_rate: 2e-4
+  epochs: 3
+  warmup_ratio: 0.05
+  weight_decay: 0.01
+  eval_steps: 50
+  save_steps: 100
+
+lora:
+  enabled: true
+  r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  target_modules:
+    - "q_proj"
+    - "v_proj"
+
+quantization:
+  load_in_4bit: true
+  bnb_4bit_quant_type: "nf4"
+  bnb_4bit_use_double_quant: true
