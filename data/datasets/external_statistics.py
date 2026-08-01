@@ -16,7 +16,7 @@ from typing import List, Optional
 
 from training.ml_dataset import MLTrainingExample
 
-REPORT_PATH = Path("reports/external_dataset_statistics.md")
+REPORT_PATH = Path("docs/external_dataset_statistics.md")
 
 
 def generate_external_report(

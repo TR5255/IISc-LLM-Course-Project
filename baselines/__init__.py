@@ -1,38 +1,40 @@
 """
 baselines/__init__.py
 ---------------------
-Dynamic router discovery and registry for Smart AI Router platform.
-Automatically discovers and instantiates all available baseline, learned,
-and neural routing principles.
+Backward-compatible re-export of the router registry.
+Populates ROUTER_REGISTRY with the four baselines at import time and
+dynamically discovers optional learned/neural models.
 """
-from typing import Dict, Type
+from baselines.registry import (
+    ROUTER_REGISTRY,
+    ROUTER_METADATA,
+    register_router,
+    get_all_registered_routers,
+    get_router_metadata,
+)
 from models.scorer import BaseScorer, RandomScorer
 from baselines.bm25 import BM25Scorer
 from baselines.tfidf import TFIDFScorer
 from baselines.embedding import EmbeddingScorer
 
-ROUTER_REGISTRY: Dict[str, Type[BaseScorer]] = {
-    "random": RandomScorer,
-    "bm25": BM25Scorer,
-    "tfidf": TFIDFScorer,
-    "embedding": EmbeddingScorer,
-}
+# --- Baseline registrations (always available, require no training) ---
+ROUTER_REGISTRY["random"] = RandomScorer
+ROUTER_METADATA["random"] = {"requires_training": False, "class": "RandomScorer"}
 
-# Dynamic discovery for optional learned / neural models
+ROUTER_REGISTRY["bm25"] = BM25Scorer
+ROUTER_METADATA["bm25"] = {"requires_training": False, "class": "BM25Scorer"}
+
+ROUTER_REGISTRY["tfidf"] = TFIDFScorer
+ROUTER_METADATA["tfidf"] = {"requires_training": False, "class": "TFIDFScorer"}
+
+ROUTER_REGISTRY["embedding"] = EmbeddingScorer
+ROUTER_METADATA["embedding"] = {"requires_training": False, "class": "EmbeddingScorer"}
+
+# --- Dynamic discovery: neural router (requires training, but participates
+#     untrained with constant 0.5 baseline scores until trained weights exist) ---
 try:
-    from models.neural_router import NeuralRouterScorer
-    ROUTER_REGISTRY["neural_router"] = NeuralRouterScorer
+    from models.neural_router import NeuralRouter
+    ROUTER_REGISTRY["neural_router"] = NeuralRouter
+    ROUTER_METADATA["neural_router"] = {"requires_training": True, "class": "NeuralRouter"}
 except ImportError:
     pass
-
-
-def get_all_registered_routers() -> Dict[str, BaseScorer]:
-    """Instantiates and returns all dynamically registered routing principles."""
-    instances = {}
-    for name, cls in ROUTER_REGISTRY.items():
-        try:
-            instances[name] = cls()
-        except Exception:
-            # If a model requires trained weights that don't exist yet, skip gracefully
-            pass
-    return instances

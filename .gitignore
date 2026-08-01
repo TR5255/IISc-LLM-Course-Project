@@ -64,6 +64,8 @@ data/external/**/*.tar.gz
 # --- Generated reports ---
 sweep_analysis_report.html
 reports/generated/
+data/reports/
+data/registry.db
 
 # --- Experiment run outputs ---
 # JSON and CSV run logs are machine-generated; regenerate with experiments/run.py

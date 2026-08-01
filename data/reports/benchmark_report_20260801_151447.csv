@@ -1,4 +1,0 @@
-routing_principle,precision,recall,f1,ndcg@3,compression_pct,token_savings_pct,avg_latency_sec,total_cost_usd,downstream_accuracy
-bm25,1.0,1.0,1.0,0.9,50.0,50.0,0.001,5.6e-05,0.8
-tfidf,1.0,1.0,1.0,0.9,50.0,50.0,0.001,5.6e-05,0.8
-embedding,1.0,1.0,1.0,0.9,50.0,50.0,0.001,5.4e-05,0.8

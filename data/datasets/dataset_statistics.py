@@ -11,7 +11,7 @@ from collections import Counter, defaultdict
 from data.datasets.benchmark_loader import BenchmarkDatasetLoader
 
 DATA_PATH = Path("data/datasets/raw/benchmark_data.json")
-REPORT_PATH = Path("reports/dataset_statistics.md")
+REPORT_PATH = Path("docs/dataset_statistics.md")
 
 def load_dataset():
     loader = BenchmarkDatasetLoader(str(DATA_PATH))
