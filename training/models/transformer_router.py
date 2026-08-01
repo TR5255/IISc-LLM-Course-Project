@@ -80,6 +80,17 @@ class TransformerRouterModel:
             trust_remote_code=True,
         )
 
+        if hasattr(self, "_model") and self._model and hasattr(self._model, "config"):
+            if hasattr(self._model.config, "pad_token_id") and self._model.config.pad_token_id is None:
+                self._model.config.pad_token_id = self._tokenizer.pad_token_id
+            try:
+                if hasattr(self._model.config, "get_text_config") and callable(self._model.config.get_text_config):
+                    text_cfg = self._model.config.get_text_config()
+                    if text_cfg and hasattr(text_cfg, "pad_token_id") and text_cfg.pad_token_id is None:
+                        text_cfg.pad_token_id = self._tokenizer.pad_token_id
+            except Exception:
+                pass
+
         # Optional LoRA initialization
         if self.lora_config and self.lora_config.get("enabled", False):
             try:

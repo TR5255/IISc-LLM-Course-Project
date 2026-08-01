@@ -62,3 +62,30 @@ When a GPU is not present:
 1. The framework automatically falls back to `device="cpu"`.
 2. PyTorch uses multi-threaded CPU inference.
 3. For ultra-low CPU latency, smaller models like `SmolLM2-135M` are recommended.
+
+---
+
+## ⚡ Training-Gated Routing Principles & Training Triggers
+
+routing principles are categorized into **Heuristic-based** (zero training required) and **Training-gated** (require offline or online fitting before benchmark inclusion):
+
+### 1. Heuristic-Based Principles (Pre-registered)
+- `random`: Reproducible random seed baseline.
+- `bm25`: Classic text-overlap keyword similarity scorer.
+- `tfidf`: Local term frequency-inverse document frequency scorer.
+- `embedding`: Vector space cosine similarity.
+
+### 2. Training-Gated Principles
+- `logistic_regression`: A learned linear model fitted on extracted sample feature vectors.
+- `neural_router`: A fine-tuned sequence classifier representing LLM attention or gradient importance.
+
+These scorers check their internal training condition flags. If untrained, they fall back to baseline-random values (scoring 0.5) to isolate benchmarks from throwing runtime errors.
+
+### Training Trigger Example
+Before executing benchmarks, check that models are trained:
+```bash
+# Train the logistic regression classifier on CUAD + LexGLUE compatibility datasets
+PYTHONPATH=. python -m training.train
+```
+Model checkpoints and serialized `.pkl` or `.pt` weights are automatically saved to `models/saved/` (which is skipped by git tracking).
+

@@ -18,6 +18,11 @@ import time
 from typing import Dict, List, Any
 from reporting.exporters import export_to_csv, export_to_json
 from reporting.plots import generate_benchmark_plots
+from reporting.narrative import (
+    generate_observations,
+    generate_conclusions,
+    get_pareto_efficient_front,
+)
 
 try:
     from reportlab.lib.pagesizes import letter
@@ -56,11 +61,11 @@ class PaperReportGenerator:
                 }
 
         # Identify best performers
-        best_f1 = max(results, key=lambda x: x.get("f1", 0))
-        best_comp = max(results, key=lambda x: x.get("compression_pct", 0))
-        best_lat = min(results, key=lambda x: x.get("avg_latency_sec", 999))
-        best_cost = min(results, key=lambda x: x.get("total_cost_usd", 999))
-        best_acc = max(results, key=lambda x: x.get("downstream_accuracy", 0))
+        best_f1 = max(results, key=lambda x: x.get("f1", 0) or 0)
+        best_comp = max(results, key=lambda x: x.get("compression_pct", 0) or 0)
+        best_lat = min(results, key=lambda x: x.get("avg_latency_sec", 999) or 999)
+        best_cost = min(results, key=lambda x: x.get("total_cost_usd", 999) or 999)
+        best_acc = max(results, key=lambda x: x.get("downstream_accuracy", 0) or 0)
 
         # Baseline comparison (relative to Random or first principle)
         baseline = results[0]
@@ -142,10 +147,36 @@ class PaperReportGenerator:
 
     def _build_markdown_report(self, results: List[Dict[str, Any]], stats: Dict[str, Any], plots: Dict[str, str], run_id: str) -> str:
         best = stats.get("best_performers", {})
+        
+        # Methodology constants
+        eval_model = "Gemini Flash (Fixed)"
+        dataset_name = "LexGLUE Legal QA Benchmark"
+        
+        # Load per-item detail if available
+        detail_path = os.path.join(self.output_dir, run_id, "per_item_detail.json")
+        per_item_detail = []
+        if os.path.exists(detail_path):
+            try:
+                with open(detail_path, "r") as f:
+                    per_item_detail = json.load(f)
+            except Exception:
+                pass
+        
+        num_items = len(set(d.get("document_id") for d in per_item_detail)) if per_item_detail else 12
+
+        # Generate Pareto candidates
+        pareto_candidates = get_pareto_efficient_front(results)
+        pareto_str = ", ".join(f"`{p.upper()}`" for p in pareto_candidates)
+        
+        # Observations & Conclusions
+        observations = generate_observations(results, stats)
+        obs_bullets = "\n".join(f"- {o}" for o in observations)
+        conclusion_para = generate_conclusions(results, stats)
+
         md = f"""# Smart AI Router: Automated Academic Research Report
 **Run Identifier**: `{run_id}`  
-**Dataset**: LexGLUE Benchmark  
-**Downstream Model**: Gemini Flash (Fixed)  
+**Dataset**: {dataset_name}  
+**Downstream Model**: {eval_model}  
 **Timestamp**: {time.strftime('%Y-%m-%d %H:%M:%S')}  
 
 ---
@@ -156,11 +187,31 @@ class PaperReportGenerator:
 - **Maximum Context Compression**: **{best.get('highest_compression', 'N/A').upper()}**
 - **Optimal Latency Efficiency**: **{best.get('lowest_latency', 'N/A').upper()}**
 - **Lowest Token Cost**: **{best.get('lowest_cost', 'N/A').upper()}**
-- **Overall Recommendation**: **{best.get('highest_accuracy', 'N/A').upper()}** provides the highest downstream answer fidelity while maintaining significant context compression.
+- **Pareto-Optimal Frontier Set**: {pareto_str}
+- **Overall Recommendation**: {conclusion_para}
 
 ---
 
-## 2. Comparative Benchmark Matrix
+## 2. Methodology & Experimental Setup
+
+This benchmark evaluates various context routing principles designed to select the most relevant sentences or subsections of legal documents before context injection into a downstream Large Language Model (LLM).
+
+- **Evaluation Dataset**: `{dataset_name}` ({num_items} items total).
+- **Selection Policy**: `TopKPolicy(k=2)` (selects the top 2 highest-scoring chunks).
+- **Downstream Reader Model**: `{eval_model}`.
+- **Metrics and Evaluation Protocol**:
+  - *Precision*: Portion of selected chunks that host annotated gold labels.
+  - *Recall*: Portion of annotated gold chunks captured.
+  - *F1 Score*: Harmonic mean of precision and recall.
+  - *NDCG@3*: Normalized Discounted Cumulative Gain calculated using graded relevance scores (0-3).
+  - *Compression Ratio %*: Percentage of characters removed from the document text.
+  - *Token Savings %*: Percentage of whitespace-approximated tokens saved.
+  - *Latency*: Total end-to-end question answering latency (seconds).
+  - *Cost*: Downstream LLM token costs in USD.
+
+---
+
+## 3. Comparative Benchmark Matrix
 
 | Routing Principle | Precision | Recall | F1 Score | NDCG@3 | Downstream Acc | Compression % | Latency (s) | Cost ($) |
 |---|---|---|---|---|---|---|---|---|
@@ -168,33 +219,53 @@ class PaperReportGenerator:
         for r in results:
             md += f"| **{r['routing_principle'].upper()}** | {r.get('precision',0):.4f} | {r.get('recall',0):.4f} | {r.get('f1',0):.4f} | {r.get('ndcg@3',0):.4f} | {r.get('downstream_accuracy',0):.4f} | {r.get('compression_pct',0):.1f}% | {r.get('avg_latency_sec',0):.3f}s | ${r.get('total_cost_usd',0):.6f} |\n"
 
-        md += "\n---\n\n## 3. Statistical Analysis & Trade-offs\n\n"
+        md += "\n---\n\n## 4. Statistical Summary\n\n"
+        md += "| Metric | Mean | Median | Std Dev | Min | Max |\n"
+        md += "|---|---|---|---|---|---|\n"
         m_stats = stats.get("metric_statistics", {})
         for metric, val in m_stats.items():
-            md += f"- **{metric.upper()}**: Mean = `{val['mean']}`, Median = `{val['median']}`, StdDev = `{val['std_dev']}`\n"
+            md += f"| **{metric.upper()}** | {val['mean']} | {val['median']} | {val['std_dev']} | {val['min']} | {val['max']} |\n"
 
-        md += "\n### Baseline Relative Improvements (%)\n\n"
+        md += "\n### Baseline Relative Improvements (% over Random)\n\n"
         for p, imp in stats.get("baseline_improvements", {}).items():
             md += f"- **{p.upper()}**: Accuracy Improvement = `{imp['acc_improvement_pct']}%`, F1 Improvement = `{imp['f1_improvement_pct']}%`\n"
 
-        md += "\n---\n\n## 4. Visualizations & Publication Figures\n\n"
-        for fig_key, fig_path in plots.items():
-            md += f"### Figure: {fig_key.replace('_', ' ').title()}\n![{fig_key}]({os.path.basename(fig_path)})\n\n"
+        md += "\n---\n\n## 5. Quantitative Observations\n\n"
+        md += obs_bullets + "\n"
 
-        md += """---
+        md += "\n---\n\n## 6. Strategic Recommendations & Conclusions\n\n"
+        md += conclusion_para + "\n"
 
-## 5. Draft Results & Discussion (For Research Paper)
+        md += "\n---\n\n## 7. Visualizations & Figures\n\n"
+        
+        figure_order = [
+            ("quality_metrics", "Figure 1: Comparative Quality Metrics (Precision, Recall, F1, and Accuracy) across Routing Principles"),
+            ("context_efficiency", "Figure 2: Context Compression and Token Reduction Efficiency by Routing Strategy"),
+            ("compression_vs_accuracy", "Figure 3: Pareto Frontier Trade-off: Context Compression vs. Downstream Gemini Accuracy"),
+            ("cost_latency", "Figure 4: Latency and Estimate Token Cost Comparison per Prompt Routing Run"),
+            ("compression_vs_latency", "Figure 5: Relationship Analysis: Context Compression vs. Average Execution Latency"),
+            ("savings_vs_accuracy", "Figure 6: Relationship Analysis: Token Savings vs. Downstream Reasoning Accuracy"),
+        ]
 
-### Results Narrative
-Experimental evaluation on the LexGLUE Legal QA benchmark indicates that context routing significantly reduces token ingestion costs without degrading downstream reasoning accuracy. The highest accuracy was achieved by embedding-based semantic routing, which retained context key phrases essential for Gemini Flash answer synthesis. 
+        for fig_key, fig_caption in figure_order:
+            if fig_key in plots:
+                fig_path = plots[fig_key]
+                md += f"### {fig_caption}\n![{fig_key}]({os.path.basename(fig_path)})\n\n"
 
-### Key Trade-offs
-1. **Lexical vs. Semantic Routing**: Lexical routers (BM25, TF-IDF) offer near-zero routing overhead (<2ms) but struggle with dense legal paraphrasing.
-2. **Context Compression vs. Downstream Accuracy**: Compressing context beyond 60% introduces minor retrieval degradation, but achieves up to 4x token cost savings.
+        if per_item_detail:
+            md += "\n---\n\n## 8. Appendix: Raw Metrics Per Item\n\n"
+            md += "| Item ID | Routing Principle | Precision | Recall | F1 Score | NDCG@3 | Compression % | Downstream Acc |\n"
+            md += "|---|---|---|---|---|---|---|---|\n"
+            for d in per_item_detail:
+                md += (
+                    f"| {d['document_id']} | **{d['principle'].upper()}** | "
+                    f"{d.get('precision',0):.4f} | {d.get('recall',0):.4f} | "
+                    f"{d.get('f1',0):.4f} | {d.get('ndcg@3',0):.4f} | "
+                    f"{d.get('compression_pct',0):.1f}% | {d.get('downstream_accuracy',0):.4f} |\n"
+                )
+            md += "\n"
 
----
-*Report automatically generated by Smart AI Router Research Workbench.*
-"""
+        md += "---  \n*Report automatically generated by Smart AI Router Research Workbench.*\n"
         return md
 
     def _build_pdf_report(self, results: List[Dict[str, Any]], stats: Dict[str, Any], plots: Dict[str, str], pdf_path: str, run_id: str):
@@ -231,9 +302,40 @@ Experimental evaluation on the LexGLUE Legal QA benchmark indicates that context
         story.append(t)
         story.append(Spacer(1, 15))
 
+        # Table statistics
+        styles.add(ParagraphStyle('SubHeader', parent=styles['Heading2'], fontSize=12, textColor=colors.HexColor('#0f172a')))
+        story.append(Paragraph("Statistical Summary", styles['SubHeader']))
+        story.append(Spacer(1, 5))
+        
+        stat_table_data = [["Metric", "Mean", "Median", "Std Dev", "Min", "Max"]]
+        m_stats = stats.get("metric_statistics", {})
+        for metric, val in m_stats.items():
+            stat_table_data.append([
+                metric.upper(),
+                f"{val['mean']}",
+                f"{val['median']}",
+                f"{val['std_dev']}",
+                f"{val['min']}",
+                f"{val['max']}",
+            ])
+
+        t_stat = Table(stat_table_data)
+        t_stat.setStyle(TableStyle([
+            ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#64748b')),
+            ('TEXTCOLOR', (0,0), (-1,0), colors.whitesmoke),
+            ('ALIGN', (0,0), (-1,-1), 'CENTER'),
+            ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#cbd5e1')),
+        ]))
+        story.append(t_stat)
+        story.append(Spacer(1, 15))
+
         # Embed Figures
-        for fig_path in plots.values():
-            if os.path.exists(fig_path):
+        figure_keys = ["quality_metrics", "context_efficiency", "compression_vs_accuracy", "cost_latency", "compression_vs_latency", "savings_vs_accuracy"]
+        story.append(Paragraph("Visualizations", styles['SubHeader']))
+        story.append(Spacer(1, 5))
+        for fig_key in figure_keys:
+            fig_path = plots.get(fig_key)
+            if fig_path and os.path.exists(fig_path):
                 story.append(Image(fig_path, width=450, height=225))
                 story.append(Spacer(1, 10))
 

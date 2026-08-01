@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart AI Router — Academic Research Workbench</title>
+  <!-- Chart.js CDN for client-side visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root {
       --bg: #0f172a;
@@ -28,6 +30,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     h1 { margin: 0; font-size: 1.25rem; font-weight: 600; }
     nav button {
@@ -43,7 +48,7 @@
       color: var(--text);
       background-color: rgba(255,255,255,0.05);
     }
-    main { padding: 2rem; max-width: 1300px; margin: 0 auto; }
+    main { padding: 1.5rem 2rem; max-width: 1400px; margin: 0 auto; }
     .card {
       background-color: var(--card-bg);
       border: 1px solid var(--border);
@@ -51,9 +56,33 @@
       padding: 1.5rem;
       margin-bottom: 1.5rem;
     }
-    .grid-4 {
+    /* Sticky sub-navigation */
+    .sub-nav {
+      position: sticky;
+      top: 60px;
+      background: var(--bg);
+      padding: 0.75rem 0;
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+      z-index: 90;
+    }
+    .sub-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.85rem;
+      border-radius: 0.25rem;
+      font-weight: 500;
+    }
+    .sub-nav a:hover {
+      color: var(--text);
+      background-color: rgba(255,255,255,0.05);
+    }
+    .grid-5 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
       margin-bottom: 1.5rem;
     }
@@ -64,7 +93,7 @@
       border-radius: 0.375rem;
     }
     .stat-card .label { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; }
-    .stat-card .value { font-size: 1.4rem; font-weight: 700; color: var(--success); margin-top: 0.25rem; }
+    .stat-card .value { font-size: 1.25rem; font-weight: 700; color: var(--success); margin-top: 0.25rem; }
     .btn-primary {
       background-color: var(--accent);
       color: white;
@@ -86,6 +115,16 @@
       text-decoration: none;
       display: inline-block;
       margin-right: 0.5rem;
+      font-size: 0.85rem;
+    }
+    .btn-action {
+      background-color: #3b82f6;
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      font-size: 0.8rem;
     }
     table {
       width: 100%;
@@ -105,6 +144,57 @@
       overflow-x: auto;
       color: #e2e8f0;
       white-space: pre-wrap;
+      max-height: 500px;
+    }
+    /* Visualization Grid styling */
+    .viz-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 900px) {
+      .viz-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .chart-container {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 0.375rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .chart-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    /* Form fields styling */
+    .form-group {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-width: 500px;
+    }
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .form-group input {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.5rem;
+      border-radius: 0.375rem;
     }
   </style>
 </head>
@@ -112,30 +202,75 @@
   <header>
     <h1>Smart AI Router — Academic Research Workbench</h1>
     <nav>
-      <button class="active" onclick="showSection('benchmark')">Benchmark All</button>
-      <button onclick="showSection('reports')">Reports Browser</button>
+      <button id="nav-btn-benchmark" class="active" onclick="showSection('benchmark')">Benchmark All</button>
+      <button id="nav-btn-reports" onclick="showSection('reports')">Reports Browser</button>
     </nav>
   </header>
 
   <main id="content">
     <!-- SECTION 1: BENCHMARK ALL -->
     <div id="section-benchmark">
-      <div class="card">
+      <div id="sub-nav-bench" class="sub-nav" style="display: none;">
+        <a href="#benchmark-setup">Setup</a>
+        <a href="#exec-summary">Summary</a>
+        <a href="#visualizations-header">Charts</a>
+        <a href="#results-card">Table</a>
+        <a href="#obs-concl-card">Narrative</a>
+        <a href="#report-preview-card">Report Draft</a>
+      </div>
+
+      <div id="benchmark-setup" class="card">
         <h2>Primary Research Workbench — Benchmark All</h2>
         <p style="color: var(--text-muted)">
           Dynamically discovers all implemented context routing principles (baseline, learned, and neural), 
           evaluates context quality and downstream <strong>Gemini Flash</strong> accuracy on <strong>LexGLUE</strong>, 
           and builds a paper-ready research package.
         </p>
-        <button class="btn-primary" onclick="runBenchmarkAll()">⚡ Execute Full Benchmark Suite</button>
+        <div class="form-group">
+          <label for="gemini-api-key">Gemini Flash API Key (Optional fallback if not set in server env)</label>
+          <input type="password" id="gemini-api-key" placeholder="Enter GOOGLE_API_KEY..." />
+        </div>
+        <button id="btn-run-suite" class="btn-primary" onclick="runBenchmarkAll()">⚡ Execute Full Benchmark Suite</button>
       </div>
 
-      <!-- Executive Cards -->
-      <div id="exec-summary" class="grid-4" style="display: none;">
+      <!-- Executive Cards (Extended to 5 cards) -->
+      <div id="exec-summary" class="grid-5" style="display: none;">
         <div class="stat-card"><div class="label">Top F1 Strategy</div><div id="card-f1" class="value">-</div></div>
         <div class="stat-card"><div class="label">Highest Compression</div><div id="card-comp" class="value">-</div></div>
         <div class="stat-card"><div class="label">Lowest Latency</div><div id="card-lat" class="value">-</div></div>
         <div class="stat-card"><div class="label">Lowest Token Cost</div><div id="card-cost" class="value">-</div></div>
+        <div class="stat-card"><div class="label">Best Reasoning Accuracy</div><div id="card-acc" class="value">-</div></div>
+      </div>
+
+      <!-- Dashboard Visualizations -->
+      <div id="visualizations-header" style="display: none;">
+        <h3 style="margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; text-transform: uppercase; font-size: 1rem; color: var(--text-muted)">Dashboard Visualizations</h3>
+      </div>
+      <div class="viz-grid" id="viz-container" style="display: none;">
+        <div class="chart-container">
+          <div class="chart-title">Quality Metrics Comparison (Grouping)</div>
+          <canvas id="chart-quality-metrics" style="max-height: 300px; width: 100%;"></canvas>
+        </div>
+        <div class="chart-container">
+          <div class="chart-title">Context Reduction & Token Savings</div>
+          <canvas id="chart-context-savings" style="max-height: 300px; width: 100%;"></canvas>
+        </div>
+        <div class="chart-container">
+          <div class="chart-title">Context Compression vs downstream Accuracy</div>
+          <canvas id="chart-comp-vs-acc" style="max-height: 300px; width: 100%;"></canvas>
+        </div>
+        <div class="chart-container">
+          <div class="chart-title">Context Compression vs Latency</div>
+          <canvas id="chart-comp-vs-lat" style="max-height: 300px; width: 100%;"></canvas>
+        </div>
+        <div class="chart-container">
+          <div class="chart-title">Token Savings vs downstream Accuracy</div>
+          <canvas id="chart-savings-vs-acc" style="max-height: 300px; width: 100%;"></canvas>
+        </div>
+        <div class="chart-container">
+          <div class="chart-title">Latency vs Token Cost (mUSD)</div>
+          <canvas id="chart-lat-cost" style="max-height: 300px; width: 100%;"></canvas>
+        </div>
       </div>
 
       <!-- Results Table & Actions -->
@@ -153,12 +288,42 @@
               <th>F1 Score</th>
               <th>NDCG@3</th>
               <th>Compression %</th>
+              <th>Token Savings %</th>
               <th>Accuracy</th>
               <th>Latency</th>
               <th>Cost ($)</th>
             </tr>
           </thead>
           <tbody id="results-body"></tbody>
+        </table>
+      </div>
+
+      <!-- Observations & Conclusions Card (2.6) -->
+      <div id="obs-concl-card" class="card" style="display: none;">
+        <h3>Automatic Narrative & Observations</h3>
+        <div id="narrative-content" style="color: var(--text-muted); line-height: 1.6;">
+          <h4 style="color: var(--text)">Data-Driven Key Observations</h4>
+          <ul id="observations-list" style="margin-left: 1.5rem; margin-bottom: 1.5rem;"></ul>
+          <h4 style="color: var(--text)">Strategic Recommendation & Conclusion</h4>
+          <p id="recommendation-para" style="font-style: italic; background: #0f172a; padding: 1rem; border-left: 4px solid var(--accent); border-radius: 0.25rem;"></p>
+        </div>
+      </div>
+
+      <!-- Historical stats metrics comparison (2.6) -->
+      <div id="stats-summary-card" class="card" style="display: none;">
+        <h3>Statistical Summary Matrix</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Mean</th>
+              <th>Median</th>
+              <th>Std Dev</th>
+              <th>Min</th>
+              <th>Max</th>
+            </tr>
+          </thead>
+          <tbody id="stats-summary-body"></tbody>
         </table>
       </div>
 
@@ -172,11 +337,17 @@
     <!-- SECTION 2: REPORTS BROWSER -->
     <div id="section-reports" style="display: none;">
       <div class="card">
-        <h2>Generated Research Packages</h2>
-        <button class="btn-secondary" onclick="loadReportsList()">🔄 Refresh Reports</button>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h2>Generated Research Packages</h2>
+          <div>
+            <button class="btn-secondary" onclick="loadReportsList()">🔄 Refresh Reports</button>
+            <button class="btn-primary" id="btn-compare-runs" onclick="compareSelectedRuns()">📊 Compare Selected Runs</button>
+          </div>
+        </div>
         <table style="margin-top: 1rem;">
           <thead>
             <tr>
+              <th style="width: 40px;"><input type="checkbox" id="select-all-runs" onclick="toggleSelectAllRuns(this)"></th>
               <th>Run ID</th>
               <th>Created At</th>
               <th>ZIP Research Package</th>
@@ -187,70 +358,391 @@
         </table>
       </div>
 
+      <!-- Run Comparison View -->
+      <div id="run-comparison-card" class="card" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h3>Multi-Run Comparative Visualizations</h3>
+          <button class="btn-secondary" onclick="document.getElementById('run-comparison-card').style.display='none'">Close</button>
+        </div>
+        <div class="viz-grid" style="grid-template-columns: 1fr; margin-top: 1rem;">
+          <div class="chart-container">
+            <div class="chart-title">F1 retrieval score by Run & strategy</div>
+            <canvas id="chart-compare-f1" style="max-height: 350px; width: 100%;"></canvas>
+          </div>
+          <div class="chart-container" style="margin-top: 1rem;">
+            <div class="chart-title">Downstream reasoning Accuracy by Run & strategy</div>
+            <canvas id="chart-compare-accuracy" style="max-height: 350px; width: 100%;"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Report Viewer (2.5) -->
       <div id="interactive-report-card" class="card" style="display: none;">
-        <h3>Interactive Report Viewer</h3>
-        <pre id="interactive-markdown"></pre>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h3>Interactive Report Viewer</h3>
+          <button class="btn-secondary" onclick="document.getElementById('interactive-report-card').style.display='none'">Close</button>
+        </div>
+        <div id="reports-tab-subnav" class="sub-nav" style="margin-top: 1rem;">
+          <a href="#interactive-dashboard-anchor">Report Dashboard</a>
+          <a href="#interactive-raw-md-anchor">Raw Markdown Document</a>
+        </div>
+        
+        <div id="interactive-dashboard-anchor" style="margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 1rem;">
+          <!-- Embed same components dynamically loaded -->
+          <div id="hist-exec-summary" class="grid-5"></div>
+          
+          <div class="viz-grid" id="hist-viz-container" style="margin-top: 1.5rem;">
+            <div class="chart-container">
+              <div class="chart-title">Quality Metrics Comparison</div>
+              <canvas id="chart-hist-quality" style="max-height: 300px; width: 100%"></canvas>
+            </div>
+            <div class="chart-container">
+              <div class="chart-title">Context Reduction & Token Savings</div>
+              <canvas id="chart-hist-savings" style="max-height: 300px; width: 100%"></canvas>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 1.5rem; background: #0f172a;">
+            <h4>Historical Metrics Matrix</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Routing Principle</th>
+                  <th>Precision</th>
+                  <th>Recall</th>
+                  <th>F1 Score</th>
+                  <th>NDCG@3</th>
+                  <th>Compression %</th>
+                  <th>Downstream Acc</th>
+                  <th>Latency</th>
+                  <th>Cost ($)</th>
+                </tr>
+              </thead>
+              <tbody id="hist-results-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="interactive-raw-md-anchor" style="margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 1rem;">
+          <h4>Raw Markdown Report Draft</h4>
+          <pre id="interactive-markdown"></pre>
+        </div>
       </div>
     </div>
   </main>
 
   <script>
     const API_BASE = "http://localhost:8000/api";
+    let activeCharts = {};
 
     function showSection(section) {
       document.getElementById("section-benchmark").style.display = section === "benchmark" ? "block" : "none";
       document.getElementById("section-reports").style.display = section === "reports" ? "block" : "none";
-      if (section === "reports") loadReportsList();
+      
+      document.getElementById("nav-btn-benchmark").className = section === "benchmark" ? "active" : "";
+      document.getElementById("nav-btn-reports").className = section === "reports" ? "active" : "";
+
+      if (section === "reports") {
+        loadReportsList();
+      }
+    }
+
+    // Color definitions for scorers so they color consistently across all charts
+    const COLOR_MAP = {
+      "random": "#334155",        // Slate
+      "bm25": "#3b82f6",          // Blue
+      "tfidf": "#10b981",         // Green
+      "embedding": "#f59e0b",     // Amber
+      "neural_router": "#8b5cf6", // Purple
+    };
+
+    function getColorForPrinciple(name) {
+      const lower = name.toLowerCase();
+      return COLOR_MAP[lower] || "#64748b";
+    }
+
+    function destroyCharts(prefix) {
+      for (let k in activeCharts) {
+        if (k.startsWith(prefix)) {
+          activeCharts[k].destroy();
+          delete activeCharts[k];
+        }
+      }
+    }
+
+    function renderCharts(containerPrefix, results, statistics) {
+      destroyCharts(containerPrefix);
+
+      const validResults = results.filter(r => !r.error);
+      const labels = validResults.map(r => r.routing_principle.toUpperCase());
+      const barColors = validResults.map(r => getColorForPrinciple(r.routing_principle));
+
+      // 1. Grouped Bar Quality Metrics Chart
+      const ctxQuality = document.getElementById(containerPrefix === "live" ? "chart-quality-metrics" : "chart-hist-quality");
+      if (ctxQuality) {
+        activeCharts[containerPrefix + "_quality"] = new Chart(ctxQuality, {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [
+              { label: "Precision", data: validResults.map(r => r.precision * 100), backgroundColor: "#3b82f6" },
+              { label: "Recall", data: validResults.map(r => r.recall * 100), backgroundColor: "#10b981" },
+              { label: "F1 Score", data: validResults.map(r => r.f1 * 100), backgroundColor: "#f59e0b" },
+              { label: "LLM Accuracy", data: validResults.map(r => r.downstream_accuracy * 100), backgroundColor: "#8b5cf6" }
+            ]
+          },
+          options: {
+            scales: { y: { beginAtZero: true, max: 100 } },
+            plugins: { legend: { labels: { color: "#f8fafc" } } }
+          }
+        });
+      }
+
+      // 2. Context Savings & Compression Ratio
+      const ctxSavings = document.getElementById(containerPrefix === "live" ? "chart-context-savings" : "chart-hist-savings");
+      if (ctxSavings) {
+        activeCharts[containerPrefix + "_savings"] = new Chart(ctxSavings, {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [
+              { label: "Compression Ratio (%)", data: validResults.map(r => r.compression_pct), backgroundColor: "#06b6d4" },
+              { label: "Token Savings (%)", data: validResults.map(r => r.token_savings_pct), backgroundColor: "#10b981" }
+            ]
+          },
+          options: {
+            scales: { y: { beginAtZero: true, max: 100 } },
+            plugins: { legend: { labels: { color: "#f8fafc" } } }
+          }
+        });
+      }
+
+      // Live Benchmarking Graphs Only (scatter plots & cost/latency)
+      if (containerPrefix === "live") {
+        // 3. Compression vs Accuracy (Scatter)
+        const ctxScatCA = document.getElementById("chart-comp-vs-acc");
+        if (ctxScatCA) {
+          activeCharts["live_comp_vs_acc"] = new Chart(ctxScatCA, {
+            type: "scatter",
+            data: {
+              datasets: validResults.map(r => ({
+                label: r.routing_principle.toUpperCase(),
+                data: [{ x: r.compression_pct, y: r.downstream_accuracy * 100 }],
+                backgroundColor: getColorForPrinciple(r.routing_principle),
+                pointRadius: 8
+              }))
+            },
+            options: {
+              scales: {
+                x: { title: { display: true, text: "Compression Ratio (%)", color: "#94a3b8" } },
+                y: { title: { display: true, text: "Downstream Accuracy (%)", color: "#94a3b8" }, beginAtZero: true, max: 100 }
+              },
+              plugins: { legend: { labels: { color: "#f8fafc" } } }
+            }
+          });
+        }
+
+        // 4. Compression vs Latency (Scatter)
+        const ctxScatCL = document.getElementById("chart-comp-vs-lat");
+        if (ctxScatCL) {
+          activeCharts["live_comp_vs_lat"] = new Chart(ctxScatCL, {
+            type: "scatter",
+            data: {
+              datasets: validResults.map(r => ({
+                label: r.routing_principle.toUpperCase(),
+                data: [{ x: r.compression_pct, y: r.avg_latency_sec }],
+                backgroundColor: getColorForPrinciple(r.routing_principle),
+                pointRadius: 8
+              }))
+            },
+            options: {
+              scales: {
+                x: { title: { display: true, text: "Compression Ratio (%)", color: "#94a3b8" } },
+                y: { title: { display: true, text: "Average Latency (seconds)", color: "#94a3b8" } }
+              },
+              plugins: { legend: { labels: { color: "#f8fafc" } } }
+            }
+          });
+        }
+
+        // 5. Token Savings vs Accuracy (Scatter)
+        const ctxScatSA = document.getElementById("chart-savings-vs-acc");
+        if (ctxScatSA) {
+          activeCharts["live_savings_vs_acc"] = new Chart(ctxScatSA, {
+            type: "scatter",
+            data: {
+              datasets: validResults.map(r => ({
+                label: r.routing_principle.toUpperCase(),
+                data: [{ x: r.token_savings_pct, y: r.downstream_accuracy * 100 }],
+                backgroundColor: getColorForPrinciple(r.routing_principle),
+                pointRadius: 8
+              }))
+            },
+            options: {
+              scales: {
+                x: { title: { display: true, text: "Token Savings (%)", color: "#94a3b8" } },
+                y: { title: { display: true, text: "Downstream Accuracy (%)", color: "#94a3b8" }, beginAtZero: true, max: 100 }
+              },
+              plugins: { legend: { labels: { color: "#f8fafc" } } }
+            }
+          });
+        }
+
+        // 6. Latency & Cost Comparison
+        const ctxLatCost = document.getElementById("chart-lat-cost");
+        if (ctxLatCost) {
+          activeCharts["live_lat_cost"] = new Chart(ctxLatCost, {
+            type: "bar",
+            data: {
+              labels: labels,
+              datasets: [
+                { label: "Avg Latency (s)", data: validResults.map(r => r.avg_latency_sec), backgroundColor: "#ef4444", yAxisID: "y" },
+                { label: "Total Cost (mUSD)", data: validResults.map(r => r.total_cost_usd * 1000), backgroundColor: "#8b5cf6", yAxisID: "y1" }
+              ]
+            },
+            options: {
+              scales: {
+                y: { type: "linear", display: true, position: "left", title: { display: true, text: "Latency (seconds)" } },
+                y1: { type: "linear", display: true, position: "right", title: { display: true, text: "Total Cost (mUSD)" }, grid: { drawOnChartArea: false } }
+              },
+              plugins: { legend: { labels: { color: "#f8fafc" } } }
+            }
+          });
+        }
+      }
     }
 
     async function runBenchmarkAll() {
-      alert("Executing dynamic benchmark sweep across all registered routing principles... Please wait.");
+      const apiKey = document.getElementById("gemini-api-key").value.trim();
+      const btn = document.getElementById("btn-run-suite");
+      
+      btn.innerText = "⏳ Executing Suite...";
+      btn.disabled = true;
+
       try {
-        const res = await fetch(`${API_BASE}/benchmark-all`, { method: "POST" });
+        const res = await fetch(`${API_BASE}/benchmark-all`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ api_key: apiKey || null })
+        });
         const data = await res.json();
         
-        // Executive Cards
+        if (res.status !== 200) {
+          throw new Error(data.detail || "Server returned error.");
+        }
+        
+        // Show Sub-navigation & charts containers
+        document.getElementById("sub-nav-bench").style.display = "flex";
+        document.getElementById("exec-summary").style.display = "grid";
+        document.getElementById("visualizations-header").style.display = "block";
+        document.getElementById("viz-container").style.display = "grid";
+        document.getElementById("results-card").style.display = "block";
+        document.getElementById("obs-concl-card").style.display = "block";
+        document.getElementById("stats-summary-card").style.display = "block";
+        document.getElementById("report-preview-card").style.display = "block";
+
+        // Bind Executive Summary
         const best = data.statistics.best_performers || {};
+        const avgAccs = data.summary_results.reduce((acc, curr) => acc + (curr.downstream_accuracy || 0), 0) / data.summary_results.length;
         document.getElementById("card-f1").innerText = (best.highest_f1 || "-").toUpperCase();
         document.getElementById("card-comp").innerText = (best.highest_compression || "-").toUpperCase();
         document.getElementById("card-lat").innerText = (best.lowest_latency || "-").toUpperCase();
         document.getElementById("card-cost").innerText = (best.lowest_cost || "-").toUpperCase();
-        document.getElementById("exec-summary").style.display = "grid";
+        document.getElementById("card-acc").innerText = (best.highest_accuracy || "-").toUpperCase();
 
-        // Table Body
+        // Render Table Body
         const tbody = document.getElementById("results-body");
         tbody.innerHTML = "";
         data.summary_results.forEach(r => {
+          if (r.error) {
+            tbody.innerHTML += `
+              <tr style="opacity: 0.5; background: rgba(239, 68, 68, 0.05)">
+                <td><strong>${r.routing_principle.toUpperCase()}</strong></td>
+                <td colspan="9" style="color: #ef4444; font-size: 0.85rem;">💥 Principle failed to execute: ${r.error}</td>
+              </tr>
+            `;
+            return;
+          }
           tbody.innerHTML += `
             <tr>
               <td><strong>${r.routing_principle.toUpperCase()}</strong></td>
               <td>${(r.precision*100).toFixed(1)}%</td>
               <td>${(r.recall*100).toFixed(1)}%</td>
               <td>${(r.f1*100).toFixed(1)}%</td>
-              <td>${r["ndcg@3"]}</td>
-              <td>${r.compression_pct}%</td>
+              <td>${r["ndcg@3"].toFixed(4)}</td>
+              <td>${r.compression_pct.toFixed(1)}%</td>
+              <td>${r.token_savings_pct.toFixed(1)}%</td>
               <td>${(r.downstream_accuracy*100).toFixed(1)}%</td>
-              <td>${r.avg_latency_sec}s</td>
-              <td>$${r.total_cost_usd}</td>
+              <td>${r.avg_latency_sec.toFixed(3)}s</td>
+              <td>$${r.total_cost_usd.toFixed(6)}</td>
             </tr>
           `;
         });
-        document.getElementById("results-card").style.display = "block";
 
-        // ZIP Download Button
-        const runId = data.run_id;
+        // 2.6 Render Narrative Panel
+        const mdRes = await fetch(`${API_BASE}/reports/${data.run_id}/markdown`);
+        const mdData = await mdRes.json();
+        
+        // Parse observations and conclusions directly from the markdown report to display in-UI
+        // (This mirrors the parsed observations list and recommendations paragraph)
+        const obsList = document.getElementById("observations-list");
+        obsList.innerHTML = "";
+        
+        // Use a regex to extract the Markdown bullets and text block
+        const markdown = mdData.content;
+        const obsMatch = markdown.match(/## 5\. Quantitative Observations\n\n([\s\S]*?)\n\n## 6\./);
+        if (obsMatch) {
+          const lines = obsMatch[1].trim().split("\n");
+          lines.forEach(l => {
+            if (l.trim().startsWith("-")) {
+              obsList.innerHTML += `<li>${l.replace("-", "").trim()}</li>`;
+            }
+          });
+        } else {
+          obsList.innerHTML = "<li>No quantitative observations extracted.</li>";
+        }
+        
+        const recMatch = markdown.match(/## 6\. Strategic Recommendations & Conclusions\n\n([\s\S]*?)\n\n## 7\./);
+        if (recMatch) {
+          document.getElementById("recommendation-para").innerText = recMatch[1].trim();
+        } else {
+          document.getElementById("recommendation-para").innerText = "No recommendation summary extracted.";
+        }
+
+        // Render Stats Summary Matrix Table
+        const sBody = document.getElementById("stats-summary-body");
+        sBody.innerHTML = "";
+        const mStats = data.statistics.metric_statistics || {};
+        for (let metric in mStats) {
+          const v = mStats[metric];
+          sBody.innerHTML += `
+            <tr>
+              <td><strong>${metric.toUpperCase()}</strong></td>
+              <td>${v.mean}</td>
+              <td>${v.median}</td>
+              <td>${v.std_dev}</td>
+              <td>${v.min}</td>
+              <td>${v.max}</td>
+            </tr>
+          `;
+        }
+
+        // Render Dashboard Charts
+        renderCharts("live", data.summary_results, data.statistics);
+
+        // ZIP download package buttons
         document.getElementById("package-actions").innerHTML = `
-          <a class="btn-secondary" href="${API_BASE}/reports/${runId}/download-zip" download>📦 Download Full ZIP Package</a>
+          <a class="btn-secondary" href="${API_BASE}/reports/${data.run_id}/download-zip" download>📦 Download ZIP Research Package</a>
         `;
 
-        // Report Preview
-        const mdRes = await fetch(`${API_BASE}/reports/${runId}/markdown`);
-        const mdData = await mdRes.json();
-        document.getElementById("report-preview-text").innerText = mdData.content;
-        document.getElementById("report-preview-card").style.display = "block";
+        // Load preview
+        document.getElementById("report-preview-text").innerText = markdown;
 
       } catch (err) {
-        alert("Error connecting to backend API. Ensure FastAPI is running via ./run_backend.sh");
+        alert("Benchmark execution failed: " + err.message);
+      } finally {
+        btn.innerText = "⚡ Execute Full Benchmark Suite";
+        btn.disabled = false;
       }
     }
 
@@ -263,6 +755,7 @@
         data.reports.forEach(r => {
           tbody.innerHTML += `
             <tr>
+              <td><input type="checkbox" class="run-select-checkbox" value="${r.run_id}"></td>
               <td><strong>${r.run_id}</strong></td>
               <td>${new Date(r.created_at * 1000).toLocaleString()}</td>
               <td><a class="btn-secondary" href="${API_BASE}/reports/${r.run_id}/download-zip" download>📦 Download ZIP</a></td>
@@ -275,14 +768,137 @@
       }
     }
 
+    function toggleSelectAllRuns(master) {
+      const checkboxes = document.querySelectorAll(".run-select-checkbox");
+      checkboxes.forEach(c => c.checked = master.checked);
+    }
+
+    async function compareSelectedRuns() {
+      const checkboxes = document.querySelectorAll(".run-select-checkbox:checked");
+      const runIds = Array.from(checkboxes).map(c => c.value);
+      if (runIds.length < 2) {
+        alert("Please select at least 2 historical runs to compare.");
+        return;
+      }
+
+      try {
+        const resList = [];
+        for (let rid of runIds) {
+          const res = await fetch(`${API_BASE}/reports/${rid}/summary`);
+          const data = await res.json();
+          resList.push({ run_id: rid, data: data.summary_results });
+        }
+
+        // Aggregate unique routing principles in selected runs
+        const principles = Array.from(new Set(resList.flatMap(r => r.data.map(p => p.routing_principle))));
+
+        // Destroy previous comparison charts if any
+        destroyCharts("compare");
+
+        // Show comparison card container
+        const card = document.getElementById("run-comparison-card");
+        card.style.display = "block";
+        card.scrollIntoView({ behavior: "smooth" });
+
+        // Render Compare F1 score chart
+        const ctxF1 = document.getElementById("chart-compare-f1");
+        activeCharts["compare_f1"] = new Chart(ctxF1, {
+          type: "bar",
+          data: {
+            labels: principles.map(p => p.toUpperCase()),
+            datasets: resList.map((r, i) => ({
+              label: r.run_id,
+              backgroundColor: ["#3b82f6", "#10b981", "#f59e0b", "#8b5cf6", "#ec4899"][i % 5],
+              data: principles.map(p => {
+                const item = r.data.find(x => x.routing_principle === p);
+                return item ? item.f1 * 100 : 0;
+              })
+            }))
+          },
+          options: {
+            scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: "F1 Score (%)" } } },
+            plugins: { legend: { labels: { color: "#f8fafc" } } }
+          }
+        });
+
+        // Render Compare accuracy chart
+        const ctxAcc = document.getElementById("chart-compare-accuracy");
+        activeCharts["compare_accuracy"] = new Chart(ctxAcc, {
+          type: "bar",
+          data: {
+            labels: principles.map(p => p.toUpperCase()),
+            datasets: resList.map((r, i) => ({
+              label: r.run_id,
+              backgroundColor: ["#3b82f6", "#10b981", "#f59e0b", "#8b5cf6", "#ec4899"][i % 5],
+              data: principles.map(p => {
+                const item = r.data.find(x => x.routing_principle === p);
+                return item ? item.downstream_accuracy * 100 : 0;
+              })
+            }))
+          },
+          options: {
+            scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: "Downstream LLM Accuracy (%)" } } },
+            plugins: { legend: { labels: { color: "#f8fafc" } } }
+          }
+        });
+
+      } catch (err) {
+        alert("Error loading comparative summaries: " + err.message);
+      }
+    }
+
     async function viewReport(runId) {
       try {
-        const res = await fetch(`${API_BASE}/reports/${runId}/markdown`);
-        const data = await res.json();
-        document.getElementById("interactive-markdown").innerText = data.content;
-        document.getElementById("interactive-report-card").style.display = "block";
+        // Fetch raw markdown
+        const mdRes = await fetch(`${API_BASE}/reports/${runId}/markdown`);
+        const mdData = await mdRes.json();
+        document.getElementById("interactive-markdown").innerText = mdData.content;
+
+        // Fetch summary metrics JSON to render custom dashboard on Reports tab too
+        const sumRes = await fetch(`${API_BASE}/reports/${runId}/summary`);
+        const sumData = await sumRes.json();
+        
+        // Execute render function
+        const container = document.getElementById("interactive-report-card");
+        container.style.display = "block";
+        container.scrollIntoView({ behavior: "smooth" });
+
+        // Bind historic executive cards
+        const best = sumData.statistics.best_performers || {};
+        const hExec = document.getElementById("hist-exec-summary");
+        hExec.innerHTML = `
+          <div class="stat-card"><div class="label">Top F1 Strategy</div><div class="value">${(best.highest_f1 || "-").toUpperCase()}</div></div>
+          <div class="stat-card"><div class="label">Highest Compression</div><div class="value">${(best.highest_compression || "-").toUpperCase()}</div></div>
+          <div class="stat-card"><div class="label">Lowest Latency</div><div class="value">${(best.lowest_latency || "-").toUpperCase()}</div></div>
+          <div class="stat-card"><div class="label">Lowest Token Cost</div><div class="value">${(best.lowest_cost || "-").toUpperCase()}</div></div>
+          <div class="stat-card"><div class="label">Best Reasoning Accuracy</div><div class="value">${(best.highest_accuracy || "-").toUpperCase()}</div></div>
+        `;
+
+        // Render Table Body
+        const tbody = document.getElementById("hist-results-body");
+        tbody.innerHTML = "";
+        sumData.summary_results.forEach(r => {
+          tbody.innerHTML += `
+            <tr>
+              <td><strong>${r.routing_principle.toUpperCase()}</strong></td>
+              <td>${r.precision ? (r.precision*100).toFixed(1) + "%" : "N/A"}</td>
+              <td>${r.recall ? (r.recall*100).toFixed(1) + "%" : "N/A"}</td>
+              <td>${r.f1 ? (r.f1*100).toFixed(1) + "%" : "N/A"}</td>
+              <td>${r["ndcg@3"] ? r["ndcg@3"].toFixed(4) : "N/A"}</td>
+              <td>${r.compression_pct ? r.compression_pct.toFixed(1) + "%" : "N/A"}</td>
+              <td>${r.token_savings_pct ? r.token_savings_pct.toFixed(1) + "%" : "N/A"}</td>
+              <td>${r.downstream_accuracy !== null ? (r.downstream_accuracy*100).toFixed(1) + "%" : "N/A"}</td>
+              <td>${r.avg_latency_sec ? r.avg_latency_sec.toFixed(3) + "s" : "N/A"}</td>
+              <td>${r.total_cost_usd ? "$" + r.total_cost_usd.toFixed(6) : "N/A"}</td>
+            </tr>
+          `;
+        });
+
+        // Re-use rendering library for historical charts
+        renderCharts("hist", sumData.summary_results, sumData.statistics);
+
       } catch (err) {
-        alert("Could not load report markdown.");
+        alert("Could not load report dashboard: " + err.message);
       }
     }
   </script>

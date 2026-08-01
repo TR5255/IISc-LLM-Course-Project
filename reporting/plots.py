@@ -125,4 +125,60 @@ def generate_benchmark_plots(results: List[Dict[str, Any]], output_dir: str) -> 
     plt.close()
     generated_plots["cost_latency"] = path_cost_lat
 
+    # 5. Compression vs. Latency (Scatter Trade-off)
+    plt.figure(figsize=(7, 5))
+    for i, r in enumerate(results):
+        plt.scatter(
+            r.get("compression_pct", 0),
+            r.get("avg_latency_sec", 0),
+            s=180,
+            color=bar_colors[i],
+            label=r["routing_principle"].upper(),
+            zorder=5
+        )
+        plt.annotate(
+            r["routing_principle"].upper(),
+            (r.get("compression_pct", 0) + 1, r.get("avg_latency_sec", 0) + 0.05),
+            fontsize=10,
+            fontweight='bold'
+        )
+
+    plt.xlabel('Compression Ratio (%)', fontweight='bold')
+    plt.ylabel('Average Latency (seconds)', fontweight='bold')
+    plt.title('Trade-off: Context Compression vs. Average Latency', fontsize=13, fontweight='bold')
+    plt.grid(True, linestyle='--', alpha=0.6)
+    plt.tight_layout()
+    path_comp_lat = os.path.join(output_dir, "fig_compression_vs_latency.png")
+    plt.savefig(path_comp_lat, dpi=300)
+    plt.close()
+    generated_plots["compression_vs_latency"] = path_comp_lat
+
+    # 6. Token Savings vs. Downstream Accuracy (Scatter Trade-off)
+    plt.figure(figsize=(7, 5))
+    for i, r in enumerate(results):
+        plt.scatter(
+            r.get("token_savings_pct", 0),
+            r.get("downstream_accuracy", 0) * 100,
+            s=180,
+            color=bar_colors[i],
+            label=r["routing_principle"].upper(),
+            zorder=5
+        )
+        plt.annotate(
+            r["routing_principle"].upper(),
+            (r.get("token_savings_pct", 0) + 1, r.get("downstream_accuracy", 0) * 100 + 0.5),
+            fontsize=10,
+            fontweight='bold'
+        )
+
+    plt.xlabel('Token Savings (%)', fontweight='bold')
+    plt.ylabel('Downstream Gemini Accuracy (%)', fontweight='bold')
+    plt.title('Trade-off: Token Savings vs. Model Accuracy', fontsize=13, fontweight='bold')
+    plt.grid(True, linestyle='--', alpha=0.6)
+    plt.tight_layout()
+    path_sav_acc = os.path.join(output_dir, "fig_savings_vs_accuracy.png")
+    plt.savefig(path_sav_acc, dpi=300)
+    plt.close()
+    generated_plots["savings_vs_accuracy"] = path_sav_acc
+
     return generated_plots
