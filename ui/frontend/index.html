@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart AI Router — Academic Research Workbench</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --success: #10b981;
+      --border: #334155;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h1 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+    nav button {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border-radius: 0.375rem;
+    }
+    nav button.active, nav button:hover {
+      color: var(--text);
+      background-color: rgba(255,255,255,0.05);
+    }
+    main { padding: 2rem; max-width: 1300px; margin: 0 auto; }
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .stat-card {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      padding: 1rem;
+      border-radius: 0.375rem;
+    }
+    .stat-card .label { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; }
+    .stat-card .value { font-size: 1.4rem; font-weight: 700; color: var(--success); margin-top: 0.25rem; }
+    .btn-primary {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.375rem;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background-color: var(--accent-hover); }
+    .btn-secondary {
+      background-color: #475569;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th { color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; }
+    pre {
+      background: #0f172a;
+      padding: 1rem;
+      border-radius: 0.375rem;
+      overflow-x: auto;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Smart AI Router — Academic Research Workbench</h1>
+    <nav>
+      <button class="active" onclick="showSection('benchmark')">Benchmark All</button>
+      <button onclick="showSection('reports')">Reports Browser</button>
+    </nav>
+  </header>
+
+  <main id="content">
+    <!-- SECTION 1: BENCHMARK ALL -->
+    <div id="section-benchmark">
+      <div class="card">
+        <h2>Primary Research Workbench — Benchmark All</h2>
+        <p style="color: var(--text-muted)">
+          Dynamically discovers all implemented context routing principles (baseline, learned, and neural), 
+          evaluates context quality and downstream <strong>Gemini Flash</strong> accuracy on <strong>LexGLUE</strong>, 
+          and builds a paper-ready research package.
+        </p>
+        <button class="btn-primary" onclick="runBenchmarkAll()">⚡ Execute Full Benchmark Suite</button>
+      </div>
+
+      <!-- Executive Cards -->
+      <div id="exec-summary" class="grid-4" style="display: none;">
+        <div class="stat-card"><div class="label">Top F1 Strategy</div><div id="card-f1" class="value">-</div></div>
+        <div class="stat-card"><div class="label">Highest Compression</div><div id="card-comp" class="value">-</div></div>
+        <div class="stat-card"><div class="label">Lowest Latency</div><div id="card-lat" class="value">-</div></div>
+        <div class="stat-card"><div class="label">Lowest Token Cost</div><div id="card-cost" class="value">-</div></div>
+      </div>
+
+      <!-- Results Table & Actions -->
+      <div id="results-card" class="card" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h3>Comparative Benchmark Matrix</h3>
+          <div id="package-actions"></div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Routing Principle</th>
+              <th>Precision</th>
+              <th>Recall</th>
+              <th>F1 Score</th>
+              <th>NDCG@3</th>
+              <th>Compression %</th>
+              <th>Accuracy</th>
+              <th>Latency</th>
+              <th>Cost ($)</th>
+            </tr>
+          </thead>
+          <tbody id="results-body"></tbody>
+        </table>
+      </div>
+
+      <!-- Paper Report Preview -->
+      <div id="report-preview-card" class="card" style="display: none;">
+        <h3>Generated Paper Draft & Report</h3>
+        <pre id="report-preview-text"></pre>
+      </div>
+    </div>
+
+    <!-- SECTION 2: REPORTS BROWSER -->
+    <div id="section-reports" style="display: none;">
+      <div class="card">
+        <h2>Generated Research Packages</h2>
+        <button class="btn-secondary" onclick="loadReportsList()">🔄 Refresh Reports</button>
+        <table style="margin-top: 1rem;">
+          <thead>
+            <tr>
+              <th>Run ID</th>
+              <th>Created At</th>
+              <th>ZIP Research Package</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="reports-list-body"></tbody>
+        </table>
+      </div>
+
+      <div id="interactive-report-card" class="card" style="display: none;">
+        <h3>Interactive Report Viewer</h3>
+        <pre id="interactive-markdown"></pre>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const API_BASE = "http://localhost:8000/api";
+
+    function showSection(section) {
+      document.getElementById("section-benchmark").style.display = section === "benchmark" ? "block" : "none";
+      document.getElementById("section-reports").style.display = section === "reports" ? "block" : "none";
+      if (section === "reports") loadReportsList();
+    }
+
+    async function runBenchmarkAll() {
+      alert("Executing dynamic benchmark sweep across all registered routing principles... Please wait.");
+      try {
+        const res = await fetch(`${API_BASE}/benchmark-all`, { method: "POST" });
+        const data = await res.json();
+        
+        // Executive Cards
+        const best = data.statistics.best_performers || {};
+        document.getElementById("card-f1").innerText = (best.highest_f1 || "-").toUpperCase();
+        document.getElementById("card-comp").innerText = (best.highest_compression || "-").toUpperCase();
+        document.getElementById("card-lat").innerText = (best.lowest_latency || "-").toUpperCase();
+        document.getElementById("card-cost").innerText = (best.lowest_cost || "-").toUpperCase();
+        document.getElementById("exec-summary").style.display = "grid";
+
+        // Table Body
+        const tbody = document.getElementById("results-body");
+        tbody.innerHTML = "";
+        data.summary_results.forEach(r => {
+          tbody.innerHTML += `
+            <tr>
+              <td><strong>${r.routing_principle.toUpperCase()}</strong></td>
+              <td>${(r.precision*100).toFixed(1)}%</td>
+              <td>${(r.recall*100).toFixed(1)}%</td>
+              <td>${(r.f1*100).toFixed(1)}%</td>
+              <td>${r["ndcg@3"]}</td>
+              <td>${r.compression_pct}%</td>
+              <td>${(r.downstream_accuracy*100).toFixed(1)}%</td>
+              <td>${r.avg_latency_sec}s</td>
+              <td>$${r.total_cost_usd}</td>
+            </tr>
+          `;
+        });
+        document.getElementById("results-card").style.display = "block";
+
+        // ZIP Download Button
+        const runId = data.run_id;
+        document.getElementById("package-actions").innerHTML = `
+          <a class="btn-secondary" href="${API_BASE}/reports/${runId}/download-zip" download>📦 Download Full ZIP Package</a>
+        `;
+
+        // Report Preview
+        const mdRes = await fetch(`${API_BASE}/reports/${runId}/markdown`);
+        const mdData = await mdRes.json();
+        document.getElementById("report-preview-text").innerText = mdData.content;
+        document.getElementById("report-preview-card").style.display = "block";
+
+      } catch (err) {
+        alert("Error connecting to backend API. Ensure FastAPI is running via ./run_backend.sh");
+      }
+    }
+
+    async function loadReportsList() {
+      try {
+        const res = await fetch(`${API_BASE}/reports`);
+        const data = await res.json();
+        const tbody = document.getElementById("reports-list-body");
+        tbody.innerHTML = "";
+        data.reports.forEach(r => {
+          tbody.innerHTML += `
+            <tr>
+              <td><strong>${r.run_id}</strong></td>
+              <td>${new Date(r.created_at * 1000).toLocaleString()}</td>
+              <td><a class="btn-secondary" href="${API_BASE}/reports/${r.run_id}/download-zip" download>📦 Download ZIP</a></td>
+              <td><button class="btn-secondary" onclick="viewReport('${r.run_id}')">📄 View Report</button></td>
+            </tr>
+          `;
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    async function viewReport(runId) {
+      try {
+        const res = await fetch(`${API_BASE}/reports/${runId}/markdown`);
+        const data = await res.json();
+        document.getElementById("interactive-markdown").innerText = data.content;
+        document.getElementById("interactive-report-card").style.display = "block";
+      } catch (err) {
+        alert("Could not load report markdown.");
+      }
+    }
+  </script>
+</body>
+</html>

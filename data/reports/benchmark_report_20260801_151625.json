@@ -1,0 +1,38 @@
+[
+  {
+    "routing_principle": "bm25",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "ndcg@3": 0.9,
+    "compression_pct": 50.0,
+    "token_savings_pct": 50.0,
+    "avg_latency_sec": 0.001,
+    "total_cost_usd": 5.6e-05,
+    "downstream_accuracy": 0.8
+  },
+  {
+    "routing_principle": "tfidf",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "ndcg@3": 0.9,
+    "compression_pct": 50.0,
+    "token_savings_pct": 50.0,
+    "avg_latency_sec": 0.001,
+    "total_cost_usd": 5.6e-05,
+    "downstream_accuracy": 0.8
+  },
+  {
+    "routing_principle": "embedding",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "ndcg@3": 0.9,
+    "compression_pct": 50.0,
+    "token_savings_pct": 50.0,
+    "avg_latency_sec": 0.001,
+    "total_cost_usd": 5.4e-05,
+    "downstream_accuracy": 0.8
+  }
+]

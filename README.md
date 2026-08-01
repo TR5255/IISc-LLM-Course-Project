@@ -4,6 +4,33 @@ A lightweight, research-oriented Python framework for experimenting with **conte
 
 ---
 
+## 🚀 Quick Start
+
+Get up and running in **under 1 minute**:
+
+```bash
+# 1. Setup environment and install dependencies
+./setup.sh
+
+# 2. Launch FastAPI backend and Web UI
+./run.sh
+```
+
+Or run individual helper scripts:
+- `./run_backend.sh` — Launches FastAPI backend server on `http://localhost:8000`.
+- `./run_frontend.sh` — Opens Web Dashboard (`ui/frontend/index.html`) in browser.
+
+---
+
+## ⚡ Primary Workflow — Benchmark All
+
+1. Open the Web Dashboard.
+2. Click **`[Execute Full Benchmark Suite]`**.
+3. The platform automatically benchmarks all implemented routing principles (**BM25**, **TF-IDF**, **Embedding**, etc.) on the standardized **LexGLUE** legal dataset with **Gemini Flash** downstream evaluation.
+4. Generates paper-ready academic reports (**Markdown**, **PDF**, **CSV**, **JSON**, and high-res **vector plots**) saved to `data/reports/`.
+
+---
+
 ## 🎯 Research Question
 
 > *Can a lightweight local model reduce LLM context by 50–80% while preserving answer quality?*
