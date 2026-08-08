@@ -1,0 +1,9 @@
+Flask
+PyPDF2
+Werkzeug
+numpy
+torch
+transformers
+FlagEmbedding
+google-genai
+sentencepiece

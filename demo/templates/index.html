@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Legal Contract Assistant</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="container">
+
+        <!-- ==================================================
+             HERO
+             ================================================== -->
+
+        <section class="hero">
+
+            <div class="badge">
+                AI-POWERED CONTRACT ANALYSIS
+            </div>
+
+            <h1>
+                Legal Contract
+                <span>Assistant</span>
+            </h1>
+
+            <p>
+                Upload a contract and ask questions about
+                its provisions, obligations, and terms.
+            </p>
+
+        </section>
+
+
+        <!-- ==================================================
+             INPUT CARD
+             ================================================== -->
+
+        <section class="card">
+
+            <form id="analysis-form">
+
+
+                <!-- ==========================================
+                     CONTRACT UPLOAD
+                     ========================================== -->
+
+                <div class="form-section">
+
+                    <label>
+                        Contract
+                    </label>
+
+                    <div
+                        class="upload-box"
+                        id="upload-box"
+                    >
+
+                        <input
+                            type="file"
+                            id="contract"
+                            name="contract"
+                            accept=".pdf"
+                            hidden
+                        >
+
+                        <div class="upload-icon">
+                            📄
+                        </div>
+
+                        <h3>
+                            Upload your contract
+                        </h3>
+
+                        <p>
+                            PDF files only
+                        </p>
+
+                        <button
+                            type="button"
+                            id="browse-button"
+                            class="secondary-button"
+                        >
+                            Choose PDF
+                        </button>
+
+                        <div
+                            id="file-name"
+                            class="file-name"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==========================================
+                     QUESTION
+                     ========================================== -->
+
+                <div class="form-section">
+
+                    <label for="question">
+                        Your question
+                    </label>
+
+                    <textarea
+                        id="question"
+                        name="question"
+                        rows="5"
+                        placeholder="Example: What is the notice period required to terminate the contract?"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- ==========================================
+                     ANALYZE BUTTON
+                     ========================================== -->
+
+                <button
+                    type="submit"
+                    id="analyze-button"
+                    class="primary-button"
+                >
+
+                    <span id="button-text">
+                        Analyze Contract
+                    </span>
+
+                    <span
+                        id="loading-spinner"
+                        class="spinner hidden"
+                    ></span>
+
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ==================================================
+             ERROR
+             ================================================== -->
+
+        <section
+            id="error-section"
+            class="result-card error-card hidden"
+        >
+
+            <div class="result-header">
+
+                <span class="result-label">
+                    ERROR
+                </span>
+
+                <h2>
+                    Something went wrong
+                </h2>
+
+            </div>
+
+            <p id="error-message"></p>
+
+        </section>
+
+
+        <!-- ==================================================
+             ANSWER
+             ================================================== -->
+
+        <section
+            id="answer-section"
+            class="result-card hidden"
+        >
+
+            <div class="result-header">
+
+                <span class="result-label">
+                    AI ANALYSIS
+                </span>
+
+                <h2>
+                    Answer
+                </h2>
+
+            </div>
+
+
+            <!-- Key finding -->
+
+            <div class="answer-summary">
+
+                <div class="answer-icon">
+                    ✓
+                </div>
+
+                <div class="answer-content">
+
+                    <div class="answer-label">
+                        KEY FINDING
+                    </div>
+
+                    <div
+                        id="answer"
+                        class="answer"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             SUPPORTING CLAUSES
+             ================================================== -->
+
+        <section
+            id="clauses-section"
+            class="result-card hidden"
+        >
+
+            <div class="result-header">
+
+                <span class="result-label">
+                    SUPPORTING EVIDENCE
+                </span>
+
+                <h2>
+                    Relevant Clauses
+                </h2>
+
+                <p>
+                    These passages were retrieved and ranked
+                    as supporting evidence for the answer.
+                </p>
+
+            </div>
+
+
+            <div id="clauses"></div>
+
+        </section>
+
+
+        <!-- ==================================================
+             FOOTER
+             ================================================== -->
+
+        <footer>
+
+            <p>
+                <strong>
+                    Legal Contract Assistant
+                </strong>
+            </p>
+
+            <p>
+                AI-generated analysis is provided for
+                informational purposes and should be reviewed
+                by a qualified legal professional.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <script
+        src="{{ url_for('static', filename='script.js') }}"
+    ></script>
+
+</body>
+
+</html>
