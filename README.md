@@ -116,7 +116,6 @@ The processed contract indexes represent contracts as collections of textual pas
 # Repository Structure
 
 Legal-Salience/
-
 ├── data/
 │   ├── contract_index.json
 │   ├── CUAD.json
@@ -125,15 +124,14 @@ Legal-Salience/
 │   ├── train_bge_hybrid.json
 │   ├── train_bge_hybrid.jsonl
 │   ├── train_bge_hybrid.py
-│   ├── train_contract_index.json
 │   ├── train_reranker_bge_same_contract_hn.jsonl
 │   └── train_seperate_questions.json
-
+│
 ├── datasets/
 │   ├── build_contract_index.py
 │   ├── load_cuad.py
 │   └── prepare_eval_data.py
-
+│
 ├── demo/
 │   ├── templates/
 │   │   └── index.html
@@ -143,28 +141,28 @@ Legal-Salience/
 │   ├── uploads/
 │   ├── app.py
 │   └── requirements.txt
-
+│
 ├── llm/
 │   ├── evaluate_llm_metrics.py
 │   ├── evaluate_llm.py
 │   ├── prompt.py
 │   ├── rag_pipeline.py
 │   └── test_llm.py
-
+│
 ├── models/
 │   ├── convert_tobge_jsonl.py
 │   ├── create_reranker_train.py
 │   ├── evaluate_flagembedding.py
 │   └── evaluate_reranker.py
-
+│
 ├── notebooks/
 │   ├── 01_Finetuned_Retriever.ipynb
 │   ├── 02_Finetuned_Reranker.ipynb
 │   └── 03_LLM_Integration_And_Evaluation.ipynb
-
+│
 ├── outputs/
 │   └── llm_evaluation_results.jsonl
-
+│
 ├── .gitignore
 ├── README.md
 └── requirements.txt
